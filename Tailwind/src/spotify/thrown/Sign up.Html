@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-black text-white flex items-center justify-center min-h-screen"
+  >
+    <div class="w-full max-w-md p-6 text-center">
+      <!-- Spotify Logo -->
+      <div class="flex justify-center mb-4">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+          alt="Spotify Logo"
+          class="w-12 h-12"
+        />
+      </div>
+
+      <!-- Title -->
+      <h1 class="text-5xl leading-1 font-black mb-2">Sign up to</h1>
+      <h1 class="text-5xl leading-1 font-black mb-6">start listening</h1>
+
+      <!-- Email Input -->
+      <div class="text-left mb-4">
+        <label class="block text-sm font-semibold mb-3">Email address</label>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="w-full px-4 py-3 bg-transparent border border-gray-500 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <!-- Next Button -->
+      <button
+        class="w-full bg-green-500 hover:bg-green-600 text-black font-bold py-3 rounded-full"
+      >
+        Next
+      </button>
+
+      <!-- Divider -->
+      <div class="flex items-center my-6">
+        <div class="flex-1 border-t border-gray-600"></div>
+        <span class="px-4 text-gray-400 text-sm">or</span>
+        <div class="flex-1 border-t border-gray-600"></div>
+      </div>
+
+      <!-- Google Button -->
+      <button
+        class="w-full relative flex items-center justify-center gap-2 border border-gray-500 rounded-full py-3 mb-3 hover:bg-gray-800"
+      >
+        <img
+          src="https://www.svgrepo.com/show/355037/google.svg"
+          alt="Google"
+          class="w-5 h-5 absolute left-5"
+        />
+        <span class="font-medium">Sign up with Google</span>
+      </button>
+
+      <!-- Apple Button -->
+      <button
+        class="w-full relative flex items-center justify-center gap-2 border border-gray-500 rounded-full py-3 mb-3 hover:bg-gray-800"
+      >
+        <img
+          src="/src/spotify/images/apple-svgrepo-com.svg"
+          alt="Apple"
+          class="w-5 h-5 absolute left-5"
+        />
+        <span class="font-medium">Sign up with Apple</span>
+      </button>
+
+      <!-- Login -->
+      <p class="mt-6 text-sm text-gray-300">
+        Already have an account?
+        <a href="#" class="text-white underline hover:text-green-500"
+          >Log in here.</a
+        >
+      </p>
+
+      <!-- Footer -->
+      <p class="mt-6 text-xs text-gray-500">
+        This site is protected by reCAPTCHA and the Google
+        <a href="#" class="underline">Privacy Policy</a> and
+        <a href="#" class="underline">Terms of Service</a> apply.
+      </p>
+    </div>
+  </body>
+</html>

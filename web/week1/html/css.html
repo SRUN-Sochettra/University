@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csstestingsite</title>
+    <link rel="stylesheet" href="jakje.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+PL:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&family=Playwrite+PL:wght@100..400&display=swap" rel="stylesheet">
+    <style>
+        .kong {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-left: 20%;
+            margin-right: 20%;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+        #kong1 {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-left: 20%;
+            margin-right: 20%;
+        }
+        [alt~="number"]{
+            border: 10px solid #00ff1a;
+        }
+        [alt^="birthday"]{
+            border: 10px solid #ff0000;
+        }
+        p {
+           font-family: 'Playwrite AU QLD', sans-serif;
+           font-size: 16px;
+            color: #000000;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            font-family: 'Bitcount', sans-serif; 
+            color: #333;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+        @font-face {
+            font-family: "Bitcount"; 
+            src: url(/fonts/Bitcount-VariableFont_CRSV\,ELSH\,ELXP\,slnt\,wght.ttf);
+        }
+        body {
+            background-image: url(https://bouqs.com/blog/wp-content/uploads/2023/01/lotus-flower.jpg);
+            background-repeat: no-repeat;
+            background-position: middle center;
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <a id="css"></a>
+    <a href="test.html">Back to 1</a>
+    <div class="kong">
+        <h1>Hello, World!</h1>
+        <p style="color: rgb(255, 140, 0);">This is a simple HTML document.</p>
+        <p style="font-size: 10px;">This paragraph is styled with an internal CSS rule.</p>
+        <span>This is a new span element.</span>
+    </div>
+    <div id="kong1">
+        <h2>Welcome to the second box!</h2>
+        <p>This box has a different background color.</p>
+    </div>
+    <center>
+    <img src="https://dorothydalton.com/wp-content/uploads/2019/07/score-2.png" alt="birthday one" width="300" height="200"><br>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIynmw8-oyhEh-ujGvNmrEt1TiznUoxai2vg&s" alt="number two" width="300" height="200">
+    <img src="/icons/truck-solid-full.svg" alt="truck icon" width="300" height="200" style="color: red;">
+    </center>
+    <p>Here is a paragraph with some text.</p>
+</body>
+</html>

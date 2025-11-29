@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Heritage</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #0267f6 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #f3efef;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-blue-900 text-black overflow-hidden h-screen overflow-x-hidden">
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-blue-900 border-b border-gray-800 rounded-lg m-1 pt-3">
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!--World Heritage Logo -->
+        <img 
+          src=" https://th.bing.com/th/id/R.43fa41ff113cf3655be512b743472345?rik=zy4T7p3sHvdWgQ&riu=http%3a%2f%2fstatic.newworldencyclopedia.org%2fthumb%2fd%2fda%2fWorld_Heritage_logo.png%2f200px-World_Heritage_logo.png&ehk=b5ChWJuQPYfJJ0c8lD8Oyy6Y7xzZbPEZFaHFZk3EmCA%3d&risl=&pid=ImgRaw&r=0"
+          alt="World Heritage Logo"
+          class="w-11 h-11" />
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewbox="0 0 24 24"
+            class="w-5 h-5">
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div
+          class="flex items-center w-96 bg-white rounded-2xl px-4 py-2">
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-white-400 text-gray-400 focus:outline-none"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5">
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/src/spotify/Install page.Html"
+          class="text-gray-300 hover:text-white">Introduction
+        </a>
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% content-gradient bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg">
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a href="#" class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5" />
+            <span class="font-medium">Home</span>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"/>
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"/>
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a href="#" class="block text-blue-600 hover:text-blue-900 transition-colors" >Built Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Natural Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors">Cultural Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Collections / Playlists</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Preservation & Policies</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors" >About UNESCO</a>
+            <a href="#" class="block text-blue-600 hover:text-blue-900 transition-colors" >Settings</a >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden rounded-lg mr-1 mb-1">
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide">
+          <!-- Header -->
+
+    <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 p-6">
+    <!-- Article -->
+    <article class="lg:col-span-2 bg-white p-6 rounded-lg shadow">
+      <header class="mb-4">
+        <h1 class="text-3xl font-bold">Angkor Wat</h1>
+        <p class="text-sm text-gray-600">Temple complex, Angkor, Cambodia</p>
+      </header>
+
+      <p class="text-sm text-gray-500 mb-4">
+        By <span class="font-semibold">The Editors of Encyclopaedia Britannica</span>
+      </p>
+
+      <p class="mb-4">
+        <strong>Angkor Wat</strong>, temple complex at Angkor, near 
+        <span class="text-blue-600 ">Siem Reap</span>, Cambodia, 
+        that was built in the 12th century by King <span class="italic">Suryavarman II</span> 
+        (reigned 1113–c. 1150) of the Khmer empire. The vast religious complex of Angkor Wat 
+        comprises more than a thousand buildings, making it one of the largest religious 
+        monuments in the world.
+      </p>
+
+      <p class="mb-4">
+        The city of Angkor represented the apogee of Khmer architecture and art, combining 
+        spiritual symbolism with impressive construction. Its most prominent feature is the 
+        temple mountain surrounded by vast moats and walls.
+      </p>
+
+      <h2 class="text-2xl font-bold mt-6 mb-2">Angkor Wat – The World’s Architectural Masterpiece from Cambodia</h2>
+      <p class="mb-4">
+        Cambodia has been home to a Buddhist temple complex known as Angkor Wat for centuries. 
+        This temple, which encompasses over four hundred acres, is one of the largest religious 
+        monuments in the world. Since it was constructed by King Suryavarman II, who had governed 
+        the territory from 1113 until 1150, it has been referred to as a “temple city” in this 
+        Sovannaphumi land, just like the center of the political hub and state temple. 
+      </p>
+      <h2 class="text-2xl font-bold mt-6 mb-2">General Overview of Angkor Wat</h2>
+      <p class="mb-4">
+        <span class="text-blue-500">Angkor Wat Siem Reap </span>Cambodia where history and nature coexist. Angkor Wat, 
+        the biggest and most divine religious structure, shows the advanced architecture 
+        of the Khmer Empire. In the Angkorean era, the ancient Khmer Kingdom dominated 
+        most of present Southeast Asia from 802 to 1434 AD. The Angkor Complex is the soul 
+        of the Khmer people (approximately 90% of Cambodia’s population). 
+
+        The Angkor complex area consists of 200 monuments, which are spread over an area of 
+        401 square kilometers. In addition, Khmer kings built various Cambodian temples between
+        the 9th and 13th centuries, when the Khmer civilization was at its height of extraordinary 
+        creativity. 
+
+        The Angkor architecture is evidence of the strong Khmer religious beliefs – Hinduism and Buddhism.
+        And the most popular temples in the Angkor area, are Angkor Wat, Angkor Thom, Bayon, Baphuon, 
+        Phimeanakas, Ta Keo, Ta Prohm, Banteay Kdei, and Pré Roup, East Mebon, Kravan, Preah Khan, Neak Poan, 
+        Banteay Srei, Rolous Group, etc.
+      </p>
+      <h2 class="text-2xl font-bold mt-6 mb-2">What is The Location of Angkor Wat? and Who build this vast sophisticated temple? </h2>
+      <p class="mb-4">
+        Angkor Wat is situated around eight kilometers north of Siem Reap, a contemporary Cambodian city 
+        with a population of over 200,000. The Khmer Empire dominated the area for a while, and this
+        structure functioned as their capital during that time. As a result, Cambodians refer to the
+        capital city as “Angkor,” whereas the name “Wat” refers to a temple.
+
+        The largest religious monument in the world and one of the most iconic structures of all time,
+        Angkor Wat, was built almost 900 years ago. King Suryavarman II, the monarch of the land at the time, 
+        was a Hindu region follower. Hence Angkor Wat was originally constructed as a Hindu-styled temple. 
+        Nevertheless, this wonderful temple in Cambodia had become a Buddhist place of worship by the end of 
+        the 12th century. Archeologists are applying the latest techniques to reveal the mysteries of Angkor: A vast city the size of London. 
+
+        The new monarch, Jayavarman VII, commanded all citizens to shift their situated city of Cambodia 
+        to Angkor Thom while moving their state temple to Bayon. The transition of moving to other temples 
+        was due to the attack of Khmer’s rival tribe at that time.
+
+        As the power and influence of Angkor Wat grew within the context of the Buddhist faith practiced in 
+        the area, the folklore associated with the monument also expanded. According to some Buddhists, 
+        Lord Indra built the temple on a single night. On the other hand, scholars now know that Angkor Wat 
+        took many decades to construct, starting with the planning process and ending with the completion. 
+        In short, the building of the temple was started by <span class="text-blue-600"> Suryavarman II </span>  and completed by <span class="text-blue-600"> Jayavarman VII. </span>   
+      </p>
+    </article>
+
+    <!-- Sidebar -->
+    <aside class="space-y-6">
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://www.shutterstock.com/image-photo/aerial-view-angkor-wat-temple-600nw-1106886017.jpg" alt="Angkor Wat aerial" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">Cambodia: Angkor Wat. Aerial view of the Angkor Wat temple complex.</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://plus.unsplash.com/premium_photo-1661963188432-5de8a11f21a7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Angkor Wat front view" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">Angkor Wat, near Siem Reap, Cambodia, is one of the most famous temples in the world.</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://www.collidu.com/media/catalog/product/img1/a/2/a2c38902e6ef88896075c262f8633f0da83df2eadbdfe41a74f696707eed32b7/cambodia-map-slide1.png" alt="Cambodia map" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">Angkor Wat’s location in Cambodia.</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://www.secret-retreats.com/blog/wp-content/uploads/2022/04/angkor.jpg" alt="Angkor Wat statues" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">The mystery and preservation of Angkor’s magnificent structures remain a global fascination.</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://files.intocambodia.org/wp-content/uploads/2024/08/10115150/Angkor-Wat-3.jpg" alt="angkor wat in the evening" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">During special events and functions, the temples of Angkor from time to time are lit at night creating a unique and very special experience.
+        angkor wat in the evening ពី helloangkor.com
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <main class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6 p-6">
+
+    <!-- Sidebar -->
+    <aside class="space-y-6">
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://www.devata.org/dat-devata/uploads/2011/05/Angkor-Maurice-Fievet-03.jpg" alt="Angkor Wat aerial" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">Cambodia: Angkor Wat. Aerial view of the Angkor Wat temple complex.</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://plus.unsplash.com/premium_photo-1661963188432-5de8a11f21a7?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Angkor Wat front view" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">Angkor Wat, near Siem Reap, Cambodia, is one of the most famous temples in the world.</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://www.khmertimeskh.com/wp-content/uploads/2025/04/100165.jpg" alt="tourists" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">Cambodia has welcomed almost three million foreign tourists in the first five months of this year, up 11.7 percent compared to the same ...</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://www.khmertimeskh.com/wp-content/uploads/2023/01/11771525873-750x440.jpg" alt="Angkor Wat statues" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">The mystery and preservation of Angkor’s magnificent structures remain a global fascination.</p>
+      </div>
+
+      <div class="bg-white p-3 rounded-lg shadow">
+        <img src="https://www.reviewofreligions.org/wp-content/uploads/2020/07/Angkor-wat-siem-reap-cambodia-bhuddist-hindu-shutterstock_620568230-scaled.jpg" alt="Later History" class="rounded-lg mb-2">
+        <p class="text-sm text-gray-700">Angkor Wat, or "city temple", lies 6 kilometers from Siem Reap in Cambodia. It was built by King Survayarman II in the late 12th century.</p>
+      </div>
+    </aside>
+    <!-- Article -->
+    <article class="lg:col-span-2 bg-white p-6 rounded-lg shadow">
+      <header class="mb-4">
+        <h1 class="text-3xl font-bold">Foundation of Angkor Wat</h1>
+        <p class="text-sm text-gray-600">Temple complex, Angkor, Cambodia</p>
+      </header>
+
+      <p class="text-sm text-gray-500 mb-4">
+        By <span class="font-semibold">The Editors of Encyclopaedia Britannica</span>
+      </p>
+      <h2 class="text-2xl font-bold mt-6 mb-2">When Was Angkor Wat Built?  </h2>
+      <p class="mb-4">
+        Angkor Wat is a Hindu temple complex built to replicate the heavens on earth, meaning “City Temple”. 
+        It was initially constructed for <span class="text-blue-600">King Suryavarman II </span>in the early twelfth century, during his reign 
+        from 1113 to 1150 with astronomical and cosmic rhythm and Hindu influence dedicated to Vishnu. And, 
+        The architects of the ancient Angkorian civilization designed and gathered their creative ideas to 
+        build the temple where its position interacted precisely with natural phenomena, using architecture 
+        skills, mathematical calculations, and astronomy. For example, the Solar Phenomena of Angkor Wat 
+        Equinox. It is the best-preserved temple and is the only one to have remained a significant religious
+        center since its foundations; first Hindu, dedicated to Vishnu, and later Buddhist. 
+      </p>
+      <h2 class="text-2xl font-bold mt-6 mb-2">Angkor receives 400,000 foreign tourists in Q1 2025</h2>
+      <p class="mb-4">
+        Angkor Archaeological Park, the most attractive tourism landscape in the Kingdom, has witnessed a significant surge in foreign visitors during the first quarter of 2025.
+        The park received some 400,000 foreign tourists between January and March of this year, up 15 percent, from 347,534 in the same period last year, according to a report from the Angkor Enterprise overseeing the Angkor Entrance Pass Sales.
+        The surge in the number of foreign tourists at the famed Angkor temple complex signalled a robust recovery for Cambodia’s tourism sector.
+        Ministry of Tourism’s Secretary of State and Spokeswoman Hun Dany attributed the surge of foreign tourists to the efforts in promoting tourism and enhancing tourists’ convenience in visiting the country.
+        “The increase of foreign tourists is a good result of cooperation among the relevant parties between the government and the private sector in promoting potential tourism,” Dany said.
+        President of the Cambodia Association of Travel Agents Chhay Sivlin welcomed the positive figures, highlighting several contributing factors including government’s efforts, air connectivity, and enhanced visitor services.
+        “Increasing number of foreign tourists was due to the government and relevant ministries cooperating with the private sector in beefing up efforts in promoting the tourism sector,” Sivlin said.
+        Air connectivity, direct flights and implementation of systems such as automatic ticket machines have also contributed to enhancing tourists’ convenience, she added.
+        She also pointed to the effectiveness of recent promotional campaigns as contributing factors to the increased visitor numbers.
+        Large crowds of both local and foreign tourists rallied in front of Cambodia’s iconic Angkor Wat temple on March 21-23 to see the stunning sunrise during the spring equinox, according to the APSARA National Authority.
+        To facilitate tours for international tourists, the government launched the Angkor ticketing system and ticket inspection reform system in January, giving more options to foreign tourists and tour agencies to buy 
+        entrance tickets, making it easier for tourists to visit the ancient temples.
+        The self-service ticketing machine contributes to enhancing visitor convenience, allowing foreign tourists more convenience to purchase tickets quickly and easily, Sivlin added.
+        Situated in northwest Siem Reap province, the 401-square-km Angkor Archaeological Park is home to 91 ancient temples, which were built from the ninth to the 13th centuries.
+        The Park, inscribed on the World Heritage List of the United Nations Educational, Scientific and Cultural Organization (UNESCO) in 1992, is the most popular tourist spot in the Southeast Asian country.
+        The country’s most popular tourist destination attracted a total of<span class="text-blue-600">1.02 million  </span> international tourists in 2024, generating a gross revenue of $47.8 million from ticket sales, according to the state-owned Angkor Enterprise.
+        FacebookTwitterEmailShare
+      </p>
+      <h2 class="text-2xl font-bold mt-6 mb-2">Later History</h2>
+      <p class="mb-4">
+        After the Cham captured Angkor in 1177, King <span class="italic">Jayavarman VII</span> 
+        restored the empire, dedicating Angkor Wat to Buddhism. Over the centuries, 
+        the temple remained active and was later maintained by Theravada Buddhists.
+      </p>
+      <p class="mb-4">
+        In the modern era, Angkor Wat became a national symbol of Cambodia and a UNESCO 
+        World Heritage site, attracting millions of visitors worldwide.
+      </p>
+    </article>
+  </main>
+
+  <br><br>
+          <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+          <!-- Footer -->
+          <footer class="content-gradient px-10 py-10 mt-8 ">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-blue-700 mb-3">About</h3>
+                  <h3 class="text-sm text-blue-800 hover:text-blue-500">This website is dedicated to promoting knowledge and awareness of Cambodian and World Heritage Sites.</h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Cambodian Heritage Highlights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">World Heritage Insights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Research & Education</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Preservation Initiatives</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800">UNESCO World Heritage Centre</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800">Cambodian Ministry of Culture and Fine Arts</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800" >Conservation Guidelines</a  >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Contact & Credits</h3>
+                  <h3 class="text-sm text-gray-400">name<br>@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                  <h3 class="text-sm text-gray-400">© 2025 Name</h3>
+                  <br /><br />
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"/>
+                </a>
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700" >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"  />
+                </a>
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+            <br><br>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

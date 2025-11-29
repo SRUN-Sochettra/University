@@ -1,0 +1,507 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pyramids of Giza | Ancient Wonders of Egypt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#c9a961',
+                        'dark-blue': '#1a3a52',
+                        'accent': '#e25822',
+                        'light-sand': '#f8f4e3',
+                        'dark': '#0d1b2a'
+                    },
+                    fontFamily: {
+                        'sans': ['Segoe UI', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Web Player</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #0267f6 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #f3efef;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+   class="bg-blue-900 text-black overflow-hidden h-screen overflow-x-hidden">
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-blue-900 border-b border-gray-800 rounded-lg m-1 pt-3">
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!--World Heritage Logo -->
+        <img 
+          src=" https://th.bing.com/th/id/R.43fa41ff113cf3655be512b743472345?rik=zy4T7p3sHvdWgQ&riu=http%3a%2f%2fstatic.newworldencyclopedia.org%2fthumb%2fd%2fda%2fWorld_Heritage_logo.png%2f200px-World_Heritage_logo.png&ehk=b5ChWJuQPYfJJ0c8lD8Oyy6Y7xzZbPEZFaHFZk3EmCA%3d&risl=&pid=ImgRaw&r=0"
+          alt="World Heritage Logo"
+          class="w-11 h-11" />
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewbox="0 0 24 24"
+            class="w-5 h-5">
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div
+          class="flex items-center w-96 bg-white rounded-2xl px-4 py-2">
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-white-400 text-gray-400 focus:outline-none"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5">
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/src/spotify/Install page.Html"
+          class="text-gray-300 hover:text-white">Introduction
+        </a>
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% content-gradient bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg">
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a href="#" class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5" />
+            <span class="font-medium">Home</span>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"/>
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"/>
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a href="#" class="block text-blue-600 hover:text-blue-900 transition-colors" >Built Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Natural Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors">Cultural Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Collections / Playlists</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Preservation & Policies</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors" >About UNESCO</a>
+            <a href="#" class="block text-blue-600 hover:text-blue-900 transition-colors" >Settings</a >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden rounded-lg mr-1 mb-1">
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide">
+          <!-- Header -->
+
+    
+
+    
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-blue mb-4">About the Pyramids</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover the history and significance of Egypt's most iconic monuments</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-dark-blue mb-4">Historical development</h3>
+                    <p class="mb-4" style="text-align: justify;">Preceded by assumed earlier sites in the Eastern Sahara, tumuli with megalithic monuments developed as early as 4700 BCE in the Saharan region of Niger.[12] Fekri Hassan (2002) indicates that the megalithic monuments in the Saharan region of Niger and the Eastern Sahara may have served as antecedents for the mastabas and pyramids of ancient Egypt.
+                            [12] During Predynastic Egypt, tumuli were present at various locations (e.g., Naqada, Helwan).[12]</p>
+                    <p class="mb-4" style="text-align: justify;">From the time of the Early Dynastic Period (c. 3150–2686 BCE), Egyptians with sufficient means were buried in bench-like structures known as mastabas.[13][14] At Saqqara, Mastaba 3808, dating from the latter part of the 1st Dynasty, was discovered to contain a large, independently built step-pyramid-like structure enclosed within the outer palace facade mastaba. Archaeological remains and inscriptions 
+                            suggest there may have been other similar structures dating to this period.[15]</p>
+                    <p class="mb-6" style="text-align: justify;">The first historically documented Egyptian pyramid is attributed by Egyptologists to the 3rd Dynasty pharaoh Djoser. Although Egyptologists often credit his vizier Imhotep as its architect, the dynastic Egyptians themselves, contemporaneously or in numerous later dynastic writings about the character, did not credit him with either designing Djoser's pyramid or the invention of stone architecture.
+                            [16] The Pyramid of Djoser was first built as a square mastaba-like structure, which as a rule were known to otherwise be rectangular, and was expanded several times by way of a series of accretion layers, to produce the stepped pyramid structure we see today.[17] Egyptologists believe this design served as a gigantic stairway by which the soul of the deceased pharaoh could ascend to the heavens.[18]</p>
+                    <p class="mb-4" style="text-align: justify;">Though other pyramids were attempted in the 3rd Dynasty after Djoser, it was the 4th Dynasty, transitioning from the step pyramid to true pyramid shape, which gave rise to the great pyramids of Meidum, Dahshur, and Giza. The last pharaoh of the 4th Dynasty, Shepseskaf, did not build a pyramid and beginning in the 5th Dynasty; for various reasons, the massive scale and precision of 
+                            construction decreased significantly leaving these later pyramids smaller, less well-built, and often hastily constructed. By the end of the 6th Dynasty, pyramid building had largely ended and it was not until the Middle Kingdom that large pyramids were built again, though instead of stone, mudbrick was the main construction material.[19]</p>
+                    <p class="mb-4" style="text-align: justify;">Long after the end of Egypt's own pyramid-building period, a burst of pyramid-building occurred in what is present-day Sudan, after much of Egypt came under the rule of the Kingdom of Kush, which was then based at Napata. Napatan rule, known as the 25th Dynasty, lasted from 750 BCE to 664 BCE. The Meroitic period of Kushite history, 
+                            when the kingdom was centered on Meroë, (approximately in the period between 300 BCE and 300 CE), experienced a full-blown pyramid-building revival, which saw about 180 Egyptian-inspired indigenous royal pyramid-tombs constructed in the vicinity of the kingdom's capital cities.[20]
+
+                            Al-Aziz Uthman (1171–1198), the second Ayyubid Sultan of Egypt, tried to destroy the Giza pyramid complex. He gave up after only damaging the Pyramid of Menkaure because the task proved too large.[21]</p>
+                    <a href="#pyramids" class="bg-accent hover:bg-red-700 text-white font-bold py-2 px-6 rounded-full transition-all duration-300 inline-block">Learn More</a>
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-xl">
+                    <img src="https://i.cbc.ca/1.4382287.1509558031!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_1180/ac-origins-pyramids.jpg?im=" alt="Pyramids of Giza" class="w-full h-auto transform hover:scale-105 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pyramids Section -->
+    <section id="pyramids" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-blue mb-4">The Three Great Pyramids</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Explore the magnificent structures that have stood for millennia</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Great Pyramid of Khufu -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://smarthistory.org/wp-content/uploads/2021/10/KhufuFull-1.jpg" alt="Great Pyramid of Khufu" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-blue mb-2">Great Pyramid of Khufu</h3>
+                        <p class="text-gray-600 mb-4">The largest pyramid in Giza, built for Pharaoh Khufu around 2580–2560 BC. It originally stood at 146.6 meters (481 feet) tall.</p>
+                        <a href="#" class="text-accent font-semibold hover:underline">Details →</a>
+                    </div>
+                </div>
+                
+                <!-- Pyramid of Khafre -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://www.egypttoursportal.com/images/2024/01/How-Was-the-Pyramid-of-Khafre-Built-Egypt-Tours-Portal.jpg" alt="Pyramid of Khafre" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-blue mb-2">Pyramid of Khafre</h3>
+                        <p class="text-gray-600 mb-4">The second-largest pyramid, built for Pharaoh Khafre, Khufu's son. It appears taller than Khufu's pyramid due to its elevated position.</p>
+                        <a href="#" class="text-accent font-semibold hover:underline">Details →</a>
+                    </div>
+                </div>
+                
+                <!-- Pyramid of Menkaure -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg transform hover:-translate-y-2 transition-transform duration-300">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Pyramid of Menkaure" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-blue mb-2">Pyramid of Menkaure</h3>
+                        <p class="text-gray-600 mb-4">The smallest of the three main pyramids, built for Pharaoh Menkaure, Khafre's son. It stands at 65 meters (213 feet) tall.</p>
+                        <a href="#" class="text-accent font-semibold hover:underline">Details →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Facts Section -->
+    <section id="facts" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-blue mb-4">Amazing Facts</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Discover fascinating details about these ancient wonders</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-light-sand p-8 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fas fa-history text-5xl text-gold mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-2">Ancient Age</h3>
+                    <p class="text-gray-600">The pyramids are over 4,500 years old, constructed around 2580–2510 BC.</p>
+                </div>
+                <div class="bg-light-sand p-8 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fas fa-weight-hanging text-5xl text-gold mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-2">Massive Scale</h3>
+                    <p class="text-gray-600">The Great Pyramid contains approximately 2.3 million stone blocks, each weighing 2.5 to 15 tons.</p>
+                </div>
+                <div class="bg-light-sand p-8 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fas fa-compass text-5xl text-gold mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-2">Precise Alignment</h3>
+                    <p class="text-gray-600">The pyramids are aligned with astonishing precision to the cardinal points of the compass.</p>
+                </div>
+                <div class="bg-light-sand p-8 rounded-xl text-center transform hover:-translate-y-2 transition-transform duration-300">
+                    <i class="fas fa-sun text-5xl text-gold mb-4"></i>
+                    <h3 class="text-xl font-bold text-dark-blue mb-2">Solar Connection</h3>
+                    <p class="text-gray-600">The pyramids were originally covered in polished white limestone that reflected sunlight.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-blue mb-4">Gallery</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Stunning views of the Pyramids of Giza</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="overflow-hidden rounded-xl shadow-lg cursor-pointer gallery-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT069lxF1PU1tEEdEAWkF-H14TLis2jq4lIkA&s" alt="Pyramids at Sunset" class="w-full h-64 object-cover transform hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg cursor-pointer gallery-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg" alt="Great Pyramid Close-up" class="w-full h-64 object-cover transform hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg cursor-pointer gallery-item">
+                    <img src="https://i0.wp.com/egypttimetravel.com/wp-content/uploads/2020/06/Pyramid-of-Khafre.jpg?resize=800%2C450&ssl=1" alt="Pyramid of Khafre" class="w-full h-64 object-cover transform hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg cursor-pointer gallery-item">
+                    <img src="https://live.staticflickr.com/3937/15393837990_7c443b2910_b.jpg" alt="Pyramids at Night" class="w-full h-64 object-cover transform hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg cursor-pointer gallery-item">
+                    <img src="https://www.egypttoursportal.com/images/2022/11/Camel-Ride-in-Giza-Pyramids-Egypt-Tours-Portal.jpg" alt="Camel Ride with Pyramids" class="w-full h-64 object-cover transform hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg cursor-pointer gallery-item">
+                    <img src="https://reflectionstravel.net/images/tour/large/125-Day-Trip-to-Giza-Pyramids-Sphinx-Cairo-9531506347809.jpeg" alt="Sphinx and Pyramids" class="w-full h-64 object-cover transform hover:scale-110 transition-transform duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section id="visit" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-dark-blue mb-4">Plan Your Visit</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Essential information for travelers to the Pyramids of Giza</p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="bg-light-sand p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-dark-blue mb-6">Visitor Information</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-clock text-gold mt-1 mr-3"></i>
+                            <div>
+                                <strong>Opening Hours:</strong> 8:00 AM - 5:00 PM daily
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-ticket-alt text-gold mt-1 mr-3"></i>
+                            <div>
+                                <strong>Entrance Fee:</strong> 240 EGP (Great Pyramid interior: 400 EGP)
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt text-gold mt-1 mr-3"></i>
+                            <div>
+                                <strong>Location:</strong> Giza Plateau, Giza, Egypt
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-camera text-gold mt-1 mr-3"></i>
+                            <div>
+                                <strong>Photography:</strong> Allowed (tripods may require permission)
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-user-tie text-gold mt-1 mr-3"></i>
+                            <div>
+                                <strong>Guides:</strong> Licensed guides available at the entrance
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-sun text-gold mt-1 mr-3"></i>
+                            <div>
+                                <strong>Best Time:</strong> Early morning or late afternoon to avoid crowds and heat
+                            </div>
+                        </li>
+                    </ul>
+                    <a href="#" class="mt-8 bg-accent hover:bg-red-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 inline-block">Book a Tour</a>
+                </div>
+                <div class="overflow-hidden rounded-xl shadow-lg">
+                    <div class="h-96">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3453.546384810434!2d31.132319615119553!3d29.97917548193778!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1458457c1c9a5e0f%3A0x5c9e5b6e3e7e5e5e!2sPyramids%20of%20Giza!5e0!3m2!1sen!2seg!4v1629781234567!5m2!1sen!2seg" class="w-full h-full" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Gallery lightbox functionality
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxClose = document.getElementById('lightbox-close');
+
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                lightboxImg.src = imgSrc;
+                lightbox.classList.remove('hidden');
+            });
+        });
+
+        lightboxClose.addEventListener('click', () => {
+            lightbox.classList.add('hidden');
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.add('hidden');
+            }
+        });
+    </script>
+        
+          <!-- Footer -->
+          <footer class="content-gradient px-10 py-10 mt-8 ">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-blue-700 mb-3">About</h3>
+                  <h3 class="text-sm text-blue-800 hover:text-blue-500">This website is dedicated to promoting knowledge and awareness of Cambodian and World Heritage Sites.</h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Cambodian Heritage Highlights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">World Heritage Insights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Research & Education</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Preservation Initiatives</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800">UNESCO World Heritage Centre</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800">Cambodian Ministry of Culture and Fine Arts</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800" >Conservation Guidelines</a  >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Contact & Credits</h3>
+                  <h3 class="text-sm text-gray-400">name<br>@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                  <h3 class="text-sm text-gray-400">© 2025 Name</h3>
+                  <br /><br />
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"/>
+                </a>
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700" >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"  />
+                </a>
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

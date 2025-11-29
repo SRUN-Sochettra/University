@@ -1,0 +1,548 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Web Player</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #0267f6 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #f3efef;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+   class="bg-blue-900 text-black overflow-hidden h-screen overflow-x-hidden">
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-blue-900 border-b border-gray-800 rounded-lg m-1 pt-3">
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!--World Heritage Logo -->
+        <img 
+          src=" https://th.bing.com/th/id/R.43fa41ff113cf3655be512b743472345?rik=zy4T7p3sHvdWgQ&riu=http%3a%2f%2fstatic.newworldencyclopedia.org%2fthumb%2fd%2fda%2fWorld_Heritage_logo.png%2f200px-World_Heritage_logo.png&ehk=b5ChWJuQPYfJJ0c8lD8Oyy6Y7xzZbPEZFaHFZk3EmCA%3d&risl=&pid=ImgRaw&r=0"
+          alt="World Heritage Logo"
+          class="w-11 h-11" />
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewbox="0 0 24 24"
+            class="w-5 h-5">
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div
+          class="flex items-center w-96 bg-white rounded-2xl px-4 py-2">
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-white-400 text-gray-400 focus:outline-none"/>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5">
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/src/spotify/Install page.Html"
+          class="text-gray-300 hover:text-white">Introduction
+        </a>
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% content-gradient bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg">
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a href="#" class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5" />
+            <span class="font-medium">Home</span>
+          </a>
+          <a href="#"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"/>
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a href="#" class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors">
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"/>
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a href="#" class="block text-blue-600 hover:text-blue-900 transition-colors" >Built Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Natural Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors">Cultural Heritages</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Collections / Playlists</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors"  >Preservation & Policies</a>
+            <a href="#"  class="block text-blue-600 hover:text-blue-900 transition-colors" >About UNESCO</a>
+            <a href="#" class="block text-blue-600 hover:text-blue-900 transition-colors" >Settings</a >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden rounded-lg mr-1 mb-1">
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide">
+          <!-- Header -->
+
+          
+  <div class="max-w-6xl mx-auto p-6">
+
+    <!-- Layout -->
+    <div class="grid md:grid-cols-[1fr_320px] gap-8 items-start">
+
+      <!-- Article -->
+      <article>
+        <h1 class="text-4xl font-bold mb-2">Great Wall of China</h1><hr>
+        <p class="text-gray-500 text-sm mb-6">From Wikipedia, the free encyclopedia</p><hr>
+        <p style="color: #0267f6;">    "Great Wall" redirects here. For other uses, see Great Wall (disambiguation).
+              "長城" redirects here. For place in South Korea, see Jangseong County.
+        </p> <br><hr><br>
+        <p class="mb-4​​ ;" style="text-align: justify;">
+          The Great Wall of China (traditional Chinese: 萬里長城; simplified Chinese: 万里长城; pinyin: Wànlǐ Chángchéng, literally "ten thousand li long wall") is a series of fortifications in China. They were built across the historical northern borders of ancient Chinese states and Imperial China as protection against various nomadic groups from the Eurasian Steppe. The first walls date to the 7th century BC; these were joined together in the Qin dynasty.[4][5] Successive dynasties expanded the wall system; the best-known sections were built by the Ming dynasty (1368–1644).
+
+          To aid in defense, the Great Wall utilized watchtowers, troop barracks, garrison stations, signaling capabilities through the means of smoke or fire, and its status as a transportation corridor. Other purposes of the Great Wall have included border controls (allowing control of immigration and emigration, and the imposition of duties on goods transported along the Silk Road), and the regulation of trade.[6]
+
+          The collective fortifications constituting the Great Wall stretch from Liaodong in the east to Lop Lake in the west, and from the present-day Sino–Russian border in the north to Tao River in the south: an arc that roughly delineates the edge of the Mongolian steppe, spanning 21,196.18 km (13,170.70 mi) in total.[7][3] It is a UNESCO World Heritage Site, and was voted one of the New 7 Wonders of the World in 2007.[8][9] Today, the defensive system of the Great Wall is recognized as one of the most impressive architectural feats in history.[10]
+        </p>
+        <h2 class="text-2xl font-bold mt-6 mb-3">Foreign accounts</h2>
+        <p class="mb-4" style="text-align: justify;">None of the Europeans who visited China or Mongolia in the 13th and 14th centuries, such as Giovanni da Pian del Carpine, William of Rubruck, Marco Polo, Odoric of Pordenone and Giovanni de' Marignolli, mentioned the Great Wall.[39][40]
+
+          The North African traveler Ibn Battuta, who also visited China during the Yuan dynasty c. 1346, had heard about China's Great Wall, possibly before he had arrived in China.[41] He wrote that the wall is "sixty days' travel" from Zeitun (modern Quanzhou) in his travelogue Gift to Those Who Contemplate the Wonders of Cities and the Marvels of Travelling. He associated it with the legend of the wall mentioned in the Qur'an,[42] which Dhul-Qarnayn (commonly associated with Alexander the Great) was said to have erected to protect people near the land of the rising sun from the savages of Gog and Magog. However, Ibn Battuta could find no one who had either seen it or knew of anyone who had seen it, suggesting that although there were remnants of the wall at that time, they were not significant.[43]
+
+          Soon after Europeans reached Ming China by ship in the early 16th century, accounts of the Great Wall started to circulate in Europe, even though no European was to see it for another century. Possibly one of the earliest European descriptions of the wall and of its significance for the defense of the country against the "Tartars" (i.e. Mongols) may be the one contained in João de Barros's 1563 Asia.[44] Other early accounts in Western sources include those of Gaspar da Cruz, Bento de Goes, Matteo Ricci, and Bishop Juan González de Mendoza,[45] the latter in 1585 describing it as a "superbious and mightie work" of architecture, though he had not seen it.[46] In 1559, in his work "A Treatise of China and the Adjoyning Regions", Gaspar da Cruz offers an early discussion of the Great Wall.[45] Perhaps the first recorded instance of a European actually entering China via the Great Wall came in 1605, when the Portuguese Jesuit brother Bento de Góis reached the northwestern Jiayu Pass from India.[47] Early European accounts were mostly modest and empirical, closely mirroring contemporary Chinese understanding of the Wall,[48] although later they slid into hyperbole,[49] including the erroneous but ubiquitous claim that the Ming walls were the same ones that were built by the first emperor in the 3rd century BC.[49]
+
+          When China opened its borders to foreign merchants and visitors after its defeat in the First and Second Opium Wars, the Great Wall became a main attraction for tourists. The travelogues of the later 19th century further enhanced the reputation and the mythology of the Great Wall.[50]
+
+        </p>
+        <h2 class="text-2xl font-bold mt-6 mb-3">Names</h2>
+        <p class="text-black mb-6" style="text-align: justify;">
+          Names
+
+          Huayi tu, an 1136 map of China with the Great Wall depicted on the northern edge of the country
+          The collection of fortifications known as the Great Wall of China has historically had a number of different names in both Chinese and English.
+
+          In Chinese histories, the term "Long Wall(s)" (t 長城, s 长城, Chángchéng) appears in Sima Qian's Records of the Grand Historian, where it referred both to the separate great walls built between and north of the Warring States and to the more unified construction of the First Emperor.[11] The Chinese character 城, meaning city or fortress, is a phono-semantic compound of the "earth" radical 土 and phonetic 成, whose Old Chinese pronunciation has been reconstructed as *deŋ.[12] It originally referred to the rampart which surrounded traditional Chinese cities and was used by extension for these walls around their respective states; today, however, it is more commonly used to mean "city".[13]
+
+          <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Rubbing_of_Huayi_tu_map.jpg/250px-Rubbing_of_Huayi_tu_map.jpg" 
+          alt="The Great Wall of China"
+          class="w-70 h-40 rounded-md mb-3 items-start" style="text-align: justify;"/>
+
+          The longer Chinese name "Ten-Thousand Mile Long Wall" (t 萬里長城, s 万里长城, Wànlǐ Chángchéng) came from Sima Qian's description of it in the Records, though he did not name the walls themselves as such. The AD 493 Book of Song quotes the frontier general Tan Daoji referring to "the long wall of 10,000 miles", closer to the modern name, but the name rarely features in pre-modern times otherwise.[14] The traditional Chinese mile (里, lǐ) was an often irregular distance that was intended to show the length of a standard village and varied with terrain but was usually standardized at distances around a third of an English mile (540 m).[15] However, this use of "ten-thousand" (wàn) is figurative in a similar manner to the Greek and English myriad and simply means "innumerable" or "immeasurable".[16]
+
+          Because of the wall's association with the First Emperor's supposed tyranny, the Chinese dynasties after Qin usually avoided referring to their own additions to the wall by the name "Long Wall".[17] Instead, various terms were used in medieval records, including "frontier(s)" (塞, Sài),[18] "rampart(s)" (垣, Yuán),[18] "barrier(s)" (障, Zhàng),[18] "the outer fortresses" (外堡, Wàibǎo),[19] and "the border wall(s)" (t 邊牆, s 边墙, Biānqiáng).[17] Poetic and informal names for the wall included "the Purple Frontier" (紫塞, Zǐsài)[20] and "the Earth Dragon" (t 土龍, s 土龙, Tǔlóng).[21] Only during the Qing period did "Long Wall" become the catch-all term to refer to the many border walls regardless of their location or dynastic origin, equivalent to the English "Great Wall".[22]
+
+          Sections of the wall in south Gobi Desert and Mongolian steppe are sometimes referred to as "Wall of Genghis Khan", even though Genghis Khan did not construct any walls or permanent defense lines himself.[23]
+
+          The current English name evolved from accounts of "the Chinese wall" from early modern European travelers.[22] By the nineteenth century,[22] "the Great Wall of China" had become standard in English and French, although other European languages such as German continue to refer to it as "the Chinese wall".[16]
+        </p>
+
+    <!-- History -->
+    <header class="mb-6">
+      <h1 class="text-3xl font-serif">History</h1>
+      <div class="mt-1 border-t border-gray-300"></div>
+      <p class="mt-3 italic text-sm text-slate-600">
+        Main article:
+        <a href="#" class="text-blue-600 hover:underline">History of the Great Wall of China</a>
+      </p>
+    </header>
+
+    <!-- Section title -->
+    <section class="mb-6">
+      <h2 class="text-xl font-semibold">Early walls</h2>
+      <p class="text-sm italic text-slate-600 mt-1">Further information:
+        <a href="#" class="text-blue-600 hover:underline">Great Wall of Qi</a>
+      </p>
+    </section>
+
+    <!-- 3-column responsive layout:
+         - small screens: stacked (image, text, image)
+         - md and up: three columns (left image, text, right image)
+    -->
+    <article class="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
+      <!-- left figure -->
+      <figure class="col-span-12 md:col-span-3 md:block items-start gap-3">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/GreatWallofQinDynasty.png/250px-GreatWallofQinDynasty.png"
+          alt="Map: The Great Wall of the Qin stretches from Lintao to Liaodong."
+          class="w-36 h-auto rounded border border-gray-200 shadow-sm object-cover"/>
+        <figcaption class="text-xs text-slate-600 mt-2 md:mt-3">
+          The Great Wall of the <strong>Qin</strong> stretches from <a href="#" class="text-blue-600 hover:underline">Lintao</a> to Liaodong.
+        </figcaption>
+      </figure>
+        <figure class="col-span-12 md:col-span-3  md:block items-start gap-3">
+          <img
+            src="https://media.gettyimages.com/id/1487962237/photo/old-engraved-illustration-of-chinese-culture-great-wall-of-china.jpg?s=612x612&w=gi&k=20&c=ZhFHuL5qYOk8EtSgRBqHuhcmsjVQb26cPoYP4TaVXz8="
+            alt="Map: The Great Wall of the Han is the longest of all walls."
+            class="w-36 h-auto rounded border border-gray-200 shadow-sm object-cover ml-auto"/>
+          <figcaption class="text-xs text-slate-600 mt-2 md:mt-3 text-right md:text-left">
+            The Great Wall of the <strong>Han</strong> is the longest of all walls, from Mamitu, near <a href="#" class="text-blue-600 hover:underline">Yumenguan</a>, to Liaodong.
+          </figcaption>
+        </figure>
+
+      <!-- main text -->
+      <div class="col-span-9 md:col-span-6 ">
+        <p>
+          The Chinese were already familiar with the techniques of <a href="#" class="text-blue-600 hover:underline">wall-building</a> by the time of the <a href="#" class="text-blue-600 hover:underline">Spring and Autumn period</a> between the 8th and 5th centuries BC. During this time and the subsequent <a href="#" class="text-blue-600 hover:underline">Warring States</a> period, the states of Qin, Wei, Zhao, Qi, Han, Yan, and Zhongshan all constructed extensive fortifications to defend their own borders. Built to withstand the attack of small arms such as swords and spears, these walls were made mostly of stone or by stamping earth and gravel between board frames.
+        </p>
+      </div>
+      <div class="col-span-9 md:col-span-6 " style="text-align: justify;">
+        <p>
+          The state of <strong>Qin</strong> emerged victorious in 221 BC; its ruler, now the <a href="#" class="text-blue-600 hover:underline">First Emperor</a> of a unified China, intended to centralize rule and prevent the resurgence of feudal lords; in doing so, he ordered the destruction of the sections of the walls that divided his empire among the former states.
+          To position the empire against the <a href="#" class="text-blue-600 hover:underline">Xiongnu</a> people from the north, however, he ordered the building of new walls to connect the remaining fortifications along the northern frontier. "Build and move on" was a central guiding principle in constructing the wall, implying that the Chinese were not erecting a permanently fixed border.
+        </p>
+      </div>
+
+      <figure class="col-span-12 md:col-span-3 md:block items-start gap-3">
+        <img
+          src="https://cdn.i-scmp.com/sites/default/files/d8/images/canvas/2023/04/21/8c03919d-aab2-4fdb-817d-90867f7c39b0_b7fc438a.jpg"
+          alt="Xiongnu vs. Han, 200 BC–AD 4"
+          class="w-45 h-37 rounded border border-gray-200 shadow-sm object-cover"/>
+        <figcaption class="text-xs text-slate-600 mt-2 md:mt-3">
+          Xiongnu vs. Han, 200 BC–AD 4
+        </figcaption>
+        </figure>
+        <figure class="col-span-12 md:col-span-3  md:block items-start gap-3">
+          <img
+            src="https://www.shutterstock.com/image-photo/xiongnu-260nw-2591009875.jpg"
+            alt="Xiongnu royalty"
+            class="w-36 h-40 rounded border border-gray-200 shadow-sm object-cover ml-auto"/>
+          <figcaption class="text-xs text-slate-600 mt-2 md:mt-3 text-right md:text-left">
+            Xiongnu royalty
+          </figcaption>
+      </figure>
+    </article>
+
+        <!-- References -->
+        <div class="mt-8 p-4 border border-gray-200 bg-gray-50 rounded-md">
+          <h3 class="font-semibold mb-2">References & notes</h3>
+          <p class="text-sm text-gray-500">
+            This sample page contains shortened content for demonstration. Replace with full text, citations 
+            and external links as needed.
+          </p>
+        </div>
+      </article>
+
+      <!-- Infobox -->
+      <aside class="border border-gray-300 bg-white p-4 rounded-lg sticky top-6 text-sm">
+        <h3 class="font-bold text-center mb-2">Great Wall of China</h3>
+        <img 
+          src="https://media.tacdn.com/media/attractions-splice-spp-674x446/0a/3c/dd/62.jpg" 
+          alt="The Great Wall of China"
+          class="w-full rounded-md mb-3"
+        />
+
+        <h3 class="font-bold text-center mb-2">Great Wall of China</h3>
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Map_of_the_Great_Wall_of_China.jpg/250px-Map_of_the_Great_Wall_of_China.jpg" 
+          alt="Map of all the wall constructions"
+          class="w-full rounded-md mb-3"
+        />
+        <p>Map of all the wall constructions</p>
+        <table class="w-full border-separate border-spacing-y-1">
+          <tr>
+            <td class="text-gray-500 pr-2 align-top">Type</td>
+            <td>Fortification</td>
+          </tr>
+          <tr>
+            <td class="text-gray-500 pr-2 align-top">Country</td>
+            <td>China</td>
+          </tr>
+          <tr>
+            <td class="text-gray-500 pr-2 align-top">Coordinates</td>
+            <td>40.68°N 117.23°E</td>
+          </tr>
+          <tr>
+            <td class="text-gray-500 pr-2 align-top">UNESCO</td>
+            <td>
+              <a href="#" class="inline-block mt-1 px-2 py-1 bg-gray-100 rounded-md font-medium text-blue-700 hover:underline">
+                UNESCO World Heritage Site
+              </a>
+            </td>
+          </tr>
+          <tr>
+            <td class="text-gray-500 pr-2 align-top">Inscription</td>
+            <td>1987 (11th Session)</td>
+          </tr>
+        </table>
+        <p class="mt-3 text-gray-500 text-xs">
+          Area: ~2,151,55 ha (approx. value). Click the link above for official details.
+        </p>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Gallery Section -->
+   <section class="content-gradient p-6">
+  <h1 class="text-3xl font-bold mb-2">Gallery</h1>
+  <!-- Gallery Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10">
+
+    <!-- Card -->
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://trevallog.com/wp-content/uploads/2023/06/Badaling-Great-Wall-of-China-728x410.jpg.webp" 
+           alt="The Great Wall at Badaling" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        The Great Wall at <a href="#" class="text-blue-600 hover:underline">Badaling</a>
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://i.pinimg.com/736x/d2/d5/ed/d2d5ed7d902619daa210f4df85243101.jpg" 
+           alt="The Great Wall at dawn" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        The Great Wall at dawn
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://govt.chinadaily.com.cn/images/202112/21/61c18458498e6a12d113a753.jpeg" 
+           alt="The Juyongguan area" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        The Juyongguan area of the Great Wall accepts numerous tourists each day.
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://www.visitourchina.com/FileUpload/blog/2020/OverhangingGreatWall.jpg" 
+           alt="The Great Wall near Jiayu Pass, Qilian Mountains in behind" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        The Great Wall near <a href="#" class="text-blue-600 hover:underline">Jiayu Pass, Qilian Mountains </a>in behind 
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://news.cgtn.com/news/2024-01-17/Beijing-plans-to-build-world-class-integrated-Great-Wall-scenic-area-1qr1aVmwfmM/img/ab9fd512d6774b91bd49cd28d81cabbd/ab9fd512d6774b91bd49cd28d81cabbd.jpeg" 
+           alt="Great Wall in Yanqing, Beijing during winter" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        Great Wall in <a href="#" class="text-blue-600 hover:underline">Yanqing, Beijing </a>during winter
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/09/c3/68/1f/laolongtou-old-dragon.jpg?w=1200&h=-1&s=1" 
+           alt="he Old Dragon Head, the Great Wall where it meets the sea in the vicinity of Shanhai Pass" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        The Old Dragon Head, the Great Wall where it meets the sea in the vicinity of <a href="#" class="text-blue-600 hover:underline">Shanhai Pass</a>
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://www.travelandleisure.com/thmb/b2-ee45Q1DEjuzOa51XLhJ7Rfmc=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/great-wall-china-tourists-GWOC0417-10bddbf0783644c386178f62117b2132.jpg" 
+           alt="Tourists at The Great Wall" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        Tourists at The Great Wall
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://thumbs.dreamstime.com/b/interior-structure-watchtower-no-juyongguan-great-wall-spring-beijing-china-th-april-interior-view-watchtower-no-378370625.jpg" 
+           alt="Inside a watchtower" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        Inside a watchtower
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXWAx7l3DbzRLWE7vEjHS-aSx5M-d932os-CY3mMkT_Ddwj_JLZlhK2p7V98wZ0S-G9VE&usqp=CAU" 
+           alt="Inside the watchtower" 
+           class="w-48 h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        Inside the watchtower
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/c8/Environmental_protection_sign_near_Great_Wall._2011.jpg" 
+           alt="Environmental protection sign, near Great Wall, 2011" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        Environmental protection sign, near Great Wall, 2011
+      </p>
+    </div>
+
+    <div class="bg-white rounded-lg shadow p-2">
+      <img src="https://www.shutterstock.com/image-photo/gate-tower-jiayuguan-pass-china-260nw-80947129.jpg" 
+           alt="The First Mound – at Jiayu Pass, the western terminus of the Ming wall" 
+           class="w-full h-48 object-cover rounded-md">
+      <p class="mt-2 text-sm text-gray-700">
+        "The First Mound" – at<a href="#" class="text-blue-600 hover:underline">Jiayu Pass</a> ,the western terminus of the Ming wall
+      </p>
+    </div>
+    <!-- Add more cards in the same format -->
+  </div>
+</section>
+
+
+          <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+          <!-- Footer -->
+          <footer class="content-gradient px-10 py-10 mt-8 ">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8">
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-blue-700 mb-3">About</h3>
+                  <h3 class="text-sm text-blue-800 hover:text-blue-500">This website is dedicated to promoting knowledge and awareness of Cambodian and World Heritage Sites.</h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Cambodian Heritage Highlights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">World Heritage Insights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Research & Education</a>
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500">Preservation Initiatives</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800">UNESCO World Heritage Centre</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800">Cambodian Ministry of Culture and Fine Arts</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800" >Conservation Guidelines</a  >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Contact & Credits</h3>
+                  <h3 class="text-sm text-gray-400">name<br>@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                  <h3 class="text-sm text-gray-400">© 2025 Name</h3>
+                  <br /><br />
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"/>
+                </a>
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700" >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"  />
+                </a>
+                <a href="#"  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700">
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

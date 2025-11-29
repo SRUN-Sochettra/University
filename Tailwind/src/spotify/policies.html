@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Heritage</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #0267f6 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #f3efef;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-blue-950 text-white overflow-hidden h-screen overflow-x-hidden"
+  >
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-blue-950 border-b border-gray-800 rounded-lg m-1 pt-3"
+    >
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!--World Heritage Logo -->
+        <img
+          src=" https://th.bing.com/th/id/R.43fa41ff113cf3655be512b743472345?rik=zy4T7p3sHvdWgQ&riu=http%3a%2f%2fstatic.newworldencyclopedia.org%2fthumb%2fd%2fda%2fWorld_Heritage_logo.png%2f200px-World_Heritage_logo.png&ehk=b5ChWJuQPYfJJ0c8lD8Oyy6Y7xzZbPEZFaHFZk3EmCA%3d&risl=&pid=ImgRaw&r=0"
+          alt="World Heritage Logo"
+          class="w-11 h-11"
+        />
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div class="flex items-center w-96 bg-white rounded-2xl px-4 py-2">
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-white-400 text-gray-400 focus:outline-none"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/Tailwind/src/spotify/introduction.html"
+          class="text-gray-300 hover:text-white"
+          >Introduction
+        </a>
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% content-gradient bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg"
+      >
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a
+            href="/Tailwind/src/spotify/world.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Home</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/cambodia show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/world show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a
+              href="/Tailwind/src/spotify/built heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Built Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/natural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Natural Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/cultural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Cultural Heritages</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Collections / Playlists</a
+            >
+            <a
+              href="/Tailwind/src/spotify/preservation & policies.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Preservation & Policies</a
+            >
+            <a
+              href="/Tailwind/src/spotify/about unesco.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >About UNESCO</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Settings</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Content Area -->
+        <div
+          class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide mr-1 rounded-lg"
+        >
+          <!-- Header -->
+          <h5 class="mb-8 text-black font-bold">Preservation & Policies</h5>
+          <p class="text-black text-justify ">14/01/2021 2<br><br>
+1 General Policies Regarding the World Heritage Convention<br>
+1.1 Fundamental World Heritage policies<br>
+1.1.1 General<br>
+1.1.2 World Heritage Committee<br>
+1.1.3 Funding<br>
+1.2 UNESCO standard-setting texts and synergies with other Conventions and Programmes<br>
+1.3 Shared Responsibility and International Cooperation<br>
+1.3.1 General<br>
+1.3.2 International Assistance<br>
+1.3.3 Regional cooperation<br>
+1.4 Heritage policies at national level<br>
+1.5 Relation between culture and nature<br>
+14/01/2021 2<br>
+1 General Policies Regarding the World Heritage Convention<br><br>
+The World Heritage Convention, adopted in 1972, is a legally binding instrument providing an intergovernmental framework for international cooperation for the identification and conservation of the world's most outstanding natural and cultural properties.<br><br>
+The Convention sets out the duties of States Parties in identifying potential sites and their role in protecting and preserving them. By ratifying the Convention, each country enters in a system of international cooperation to protect the world cultural and natural heritage and pledges to conserve the World Heritage sites situated on its territory. The States Parties are encouraged to integrate the protection of cultural and natural heritage into regional planning programmes, set up staff and services at their sites, undertake scientific and technical conservation research and adopt measures that give this heritage a function in community day-to-day life.<br><br>
+The Advisory Bodies to the World Heritage Committee are ICCROM (the International Centre for the Study of the Preservation and Restoration of Cultural Property), ICOMOS (the International Council on Monuments and Sites) and IUCN – the International Union for Conservation of Nature.
+The General Policies of the Convention theme includes policies related to the overarching framework of the Convention; the links with other standard-setting instruments, cooperation among States and implementation of the Convention at the national level.<br><br>
+1.1<br><br>
+1.1 Fundamental World Heritage policiesFundamental World Heritage policies<br>
+1.1.1<br>
+1.1.1 GeneralGeneral<br>
+World Heritage Convention<br>
+Preamble<br><br>
+"(…) It is essential (…) to adopt new provisions in the form of a convention establishing an effective system of collective protection of the cultural and natural heritage of outstanding universal value, (…)."<br><br>
+Article 7<br><br>
+"For the purpose of this Convention, international protection of the world cultural and natural heritage shall be understood to mean the establishment of a system of international co-operation and assistance designed to support States Parties to the Convention in their efforts to conserve and identify that heritage."<br><br>
+Operational Guidelines<br><br>
+Paragraph 26<br><br>
+"The current Strategic Objectives (also referred to as “the 5 Cs”) are the following:<br>
+1. Strengthen the Credibility of the World Heritage List:<br>
+2. Ensure the effective Conservation of World Heritage Properties;<br>
+3. Promote the development of effective Capacity-building in States Parties:<br>
+4. Increase public awareness, involvement and support for World Heritage through Communication;<br>
+5. Enhance the role of Communities in the implementation of the World Heritage Convention."<br>
+14/01/2021 3<br><br>
+Operational Guidelines<br><br>
+Paragraph 25<br><br>
+“In order to facilitate the implementation of the Convention, the Committee develops Strategic Objectives, (…) to ensure that new threats placed on World Heritage are addressed effectively.”<br><br>
+Operational Guidelines<br><br>
+Paragraph 14<br><br>
+“States Parties are encouraged to bring together their cultural and natural heritage experts at regular intervals to discuss the implementation of the Convention. States Parties may wish to involve representatives of the Advisory Bodies and other experts and partners as appropriate.”
+Operational Guidelines<br><br>
+Paragraph 7<br><br>
+“The [World Heritage] Convention aims at the identification, protection, conservation, presentation and transmission to future generations of cultural and natural heritage of Outstanding Universal Value.”<br><br>
+Operational Guidelines<br><br>
+Paragraph 4<br><br>
+“The cultural and natural heritage is among the priceless and irreplaceable assets, not only of each nation, but of humanity as a whole. The loss, through deterioration or disappearance, of any of these most prized assets constitutes an impoverishment of the heritage of all the peoples of the world. Parts of that heritage, because of their exceptional qualities, can be considered to be of “Outstanding Universal Value” and as such worthy of special protection against the dangers which increasingly threaten them.”<br><br>
+Policy for the Integration of a Sustainable Development Perspective Into the Processes of the World Heritage Convention<br><br>
+1. “(…) [The World Heritage Convention] is an integral part of UNESCO’s overarching mandate to foster equitable sustainable development and to promote peace and security (…)”.<br>
+3. “By identifying, protecting, conserving, presenting and transmitting to present and future generations irreplaceable cultural and natural heritage properties of Outstanding Universal Value (OUV), the World Heritage Convention, in itself, contributes significantly to sustainable development and the wellbeing of people At the same time, strengthening the three dimensions of sustainable development that are environmental sustainability, inclusive social development, and inclusive economic development, as well as the fostering of peace and security may bring benefits to World Heritage properties and support their OUV, if carefully integrated within their conservation and management systems”.<br>
+8. “In applying a sustainable development perspective within the implementation of the World Heritage Convention, States Parties should also recognize the close links and interdependence of biological diversity and local cultures within the socio-ecological systems of many World Heritage properties. These have often developed over time through mutual adaptation between humans and the environment, interacting with and affecting one another in complex ways, and are fundamental components of the resilience of communities. This suggests that any policy aiming to achieve sustainable development will necessarily have to take into consideration the interrelationship of biological diversity with the local cultural context”.<br>
+9. “All dimensions of sustainable development should apply to natural, cultural and mixed properties in their diversity. These dimensions are interdependent and mutually reinforcing, with none having predominance over<br>
+14/01/2021 4<br><br>
+another and each being equally necessary. States Parties should therefore review and reinforce governance frameworks within management systems of World Heritage properties in order to achieve the appropriate balance, integration and harmonization between the protection of OUV and the pursuit of sustainable development objectives. This will include the full respect and participation of all stakeholders and rights holders, including indigenous peoples and local communities, the setting up of effective inter-institutional coordination mechanisms and provisions for the systematic assessment of environmental, social, and economic impacts of all proposed developments, as well as effective monitoring through continuity in data collection against agreed indicators”.<br><br>
+1.1.2<br><br>
+1.1.2 World Heritage CommitteeWorld Heritage Committee<br><br>
+World Heritage Convention<br><br>
+Article 8<br><br>
+1. An Intergovernmental Committee for the Protection of the Cultural and Natural Heritage of Outstanding Universal Value, called "the World Heritage Committee", is hereby established within the United Nations Educational, Scientific and Cultural Organization. It shall be composed of 15 States Parties to the Convention, elected by States Parties to the Convention meeting in general assembly during the ordinary session of the General Conference of the United Nations Educational, Scientific and Cultural Organization. The number of States members of the Committee shall be increased to 21 as from the date of the ordinary session of the General Conference following the entry into force of this Convention for at least 40 States.<br>
+2. Election of members of the Committee shall ensure an equitable representation of the different regions and cultures of the world.<br>
+3. A representative of the International Centre for the Study of the Preservation and Restoration of Cultural Property (Rome Centre), a representative of the International Council of Monuments and Sites (ICOMOS) and a representative of the International Union for Conservation of Nature and Natural Resources (IUCN), to whom may be added, at the request of States Parties to the Convention meeting in general assembly during the ordinary sessions of the General Conference of the United Nations Educational, Scientific and Cultural Organization, representatives of other intergovernmental or non-governmental organizations, with similar objectives, may attend the meetings of the Committee in an advisory capacity.<br><br>
+Article 9<br><br>
+3. States members of the Committee shall choose as their representatives persons qualified in the field of the cultural or natural heritage.<br>
+Decision of the World Heritage Committee 43 COM 7.1<br>
+14. "[The World Heritage Committee] Recognizes that the selection of the state of conservation reports to be discussed by the Committee during its sessions should be based on clear and objective criteria, including the level of threat to the property, rather than being based on representativity."<br>
+Decision of the World Heritage Committee 35 COM 12B<br><br>
+14. "[The World Heritage Committee] recommends Committee members consider refraining from bringing forward new nominations that might be discussed during their term serving on the Committee, without prejudice to nomination files already submitted, deferred or referred during previous Committee sessions, or nominations from least represented States Parties (…)."<br>
+Rule 13.2 of the Rules of Procedure of the General Assembly to the States Parties
+"Members of the World Heritage Committee may stand again for election after a gap of 6 years after the expiry of their mandate."<br>
+14/01/2021 5<br><br>
+1.1.3<br><br>
+1.1.3 FundingFunding<br><br>
+World Heritage Convention<br><br>
+Article 13.6<br><br>
+The Committee shall decide on the use of the resources of the Fund established under Article 15 of this Convention. It shall seek ways of increasing these resources and shall take all useful steps to this end.<br><br>
+Article 15<br><br>
+1. A Fund for the Protection of the World Cultural and Natural Heritage of Outstanding Universal Value, called "the World Heritage Fund", is hereby established.<br>
+4. Contributions to the Fund and other forms of assistance made available to the Committee may be used only for such purposes as the Committee shall define. The Committee may accept contributions to be used only for a certain programme or project, provided that the Committee shall have decided on the implementation of such programme or project. No political conditions may be attached to contributions made to the Fund.<br>
+Article 16<br><br>
+1. Without prejudice to any supplementary voluntary contribution, the States Parties to this Convention undertake to pay regularly, every two years, to the World Heritage Fund, contributions, the amount of which, in the form of a uniform percentage applicable to all States, shall be determined by the General Assembly of States Parties to the Convention, meeting during the sessions of the General Conference of the United Nations Educational, Scientific and Cultural Organization (…).<br>
+Decision of the World Heritage Committee 42 COM 14<br><br>
+2. [The World Heritage Committee] highlight[s] the priority that should be given to conservation and management of World Heritage properties, takes note of the efforts made and progress achieved in this regard by increasing the proportion of the World Heritage Fund dedicated to conservation for the latest biennia and encourages further increase of this proportion, as appropriate; 4. [The World Heritage Committee] recalls that the payment of compulsory and assessed voluntary contributions is, as per Article 16 of the World Heritage Convention, an obligation incumbent on all States Parties which have ratified the Convention (…).<br>
+Decision of the World Heritage Committee 41 COM 14<br><br>
+6. Emphasizing the urgency of securing adequate financial resources to achieve the objectives of the 1972 Conventionto identify and, in particular, to conserve the world's cultural and natural heritage of Outstanding Universal Value, especially in light of the 2030 Agenda for Sustainable Development and unprecedented threats such as climate change, natural disasters, and deliberate attacks on cultural heritage in territories affected by armed conflicts and terrorism.
+8. Underscoring that sustainability of the World Heritage Fund and overall funding for World Heritage are a strategic issue and a shared responsibility which concerns States Parties and relevant partners, affecting the overall credibility of the World Heritage Convention, including effectiveness and efficiency of World Heritage protection.<br>
+17. [The World Heritage Committee] underscores that the highest ethical standards and principles must be upheld in all measures to enhance fundraising to maintain and promote the integrity of the Convention.<br>
+14/01/2021 6<br><br>
+Decision of the World Heritage Committee 27 COM 11.3<br><br>
+4. “[The World Heritage Committee] encourages the World Heritage Centre to develop bilateral agreements with States Parties as well as partnerships with multilateral organisations, the private sector and other actors with a view to securing additional resources for the following priorities:<br>
+(i) Reinforcement of the staff of the World Heritage Centre,<br>
+(ii) Emergency International Assistance,<br>
+(iii) International Assistance to properties inscribed on the List of World Heritage in Danger,<br>
+(iv) Other International Assistance to States Parties, with priority to Preparatory Assistance,<br>
+(v) Funds to ensure that the Advisory Bodies have sufficient resources to enable them fulfill their obligations under the Convention”.<br><br>
+Resolution 19 GA 8 of the General Assembly of States Parties to the World Heritage Convention<br><br>
+7. Takes note of the options proposed for allocating unrestricted supplementary voluntary contributions to the World Heritage Fund and, in order to help towards the sustainability of the World Heritage Fund, recommends to States Parties willing to make these contributions to apply one of the following options:<br>
+• Option 1: Increasing the standard percentage used in the calculation of the contributions to the World Heritage Fund from 1% to 2%.<br>
+1.2<br><br>
+1.2 UNESCO standardUNESCO standard--setting texts and synergies with other Conventions setting texts and synergies with other Conventions and Programmesand Programmes<br><br>
+Operational Guidelines<br><br>
+Paragraph 44<br><br>
+Selected global Conventions and programmes relating to the protection of cultural and natural heritage<br><br>
+UNESCO Conventions and Programmes<br><br>
+Convention for the Protection of Cultural Property in the Event of Armed Conflict (1954)<br>
+Protocol I (1954)<br>
+Protocol II (1999)<br>
+http://portal.unesco.org/en/ev.php-URL_ID=13637&URL_DO=DO_TOPIC&URL_SECTION=201.html<br>
+Convention on the Means of Prohibiting and Preventing the Illicit Import, Export and Transfer of Ownership of Cultural Property (1970)<br>
+http://www.unesco.org/new/en/culture/themes/illicit-trafficking-of-cultural-property/1970-convention/text-of-the-convention/<br>
+Convention concerning the Protection of the World Cultural and Natural Heritage (1972)
+https://whc.unesco.org/en/conventiontext/<br>
+Convention on the Protection of the Underwater Cultural Heritage (2001)<br>
+http://www.unesco.org/new/en/culture/themes/underwater-cultural-heritage/2001-convention/official-text/<br>
+Convention for the Safeguarding of the Intangible Cultural Heritage (2003)<br>
+http://unesdoc.unesco.org/images/0013/001325/132540e.pdf<br>
+14/01/2021 <br><br>
+Man and the Biosphere (MAB) Programme<br><br>
+http://www.unesco.org/mab/<br>
+Convention on the Protection and Promotion of the Diversity of Cultural Expressions (2005)<br>
+http://unesdoc.unesco.org/images/0014/001429/142919e.pdf<br>
+Other Conventions<br><br>
+Convention on Wetlands of International Importance especially as Waterfowl Habitat (Ramsar) (1971)<br>
+https://treaties.un.org/doc/Publication/UNTS/Volume%20996/volume-996-I-14583-English.pdf<br>
+Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES) (1973)<br>
+http://www.cites.org/eng/disc/text.shtml<br>
+Convention on the Conservation of Migratory Species of Wild Animals (CMS) (1979)<br>
+http://www.unep-wcmc.org/cms/cms_conv.htm<br>
+United Nations Convention on the Law of the Sea (UNCLOS) (1982)<br>
+http://www.un.org/depts/los/convention_agreements/texts/unclos/unclos_e.pdf<br>
+Convention on Biological Diversity (1992)<br>
+https://www.cbd.int/doc/legal/cbd-en.pdf<br>
+UNIDROIT Convention on Stolen or Illegally Exported Cultural Objects (Rome, 1995)<br>
+https://www.unidroit.org/instruments/cultural-property/1995-convention<br>
+United Nations Framework Convention on Climate Change (New York, 1992)<br>
+https://unfccc.int/resource/docs/convkp/conveng.pdf<br><br>
+Operational Guidelines<br><br>
+Paragraph 42<br><br>
+“The World Heritage Committee with the support of the Secretariat will ensure appropriate coordination and information-sharing between the World Heritage Convention and other Conventions, programmes and international organizations related to the conservation of cultural and natural heritage.”<br><br>
+Operational Guidelines<br><br>
+Paragraph 41<br><br>
+“The World Heritage Committee recognizes the benefits of closer co-ordination of its work with other UNESCO programmes and their relevant Conventions (…)”.<br>
+Policy for the Integration of a Sustainable Development Perspective into the Processes of the World Heritage Convention<br>
+28. “Sustainable development and the conservation of the world’s cultural and natural heritage are undermined by war, civil conflict and all forms of violence. The World Heritage Convention is an integral part of UNESCO’s established mandate to build bridges towards peace and security. It is therefore incumbent upon States Parties, in conformity also with provisions of the 1954 Hague Convention for the Protection of Cultural Property in the Event of Armed Conflict (The 1954 Hague Convention) and its two (1954 and 1999) Protocols, for the States that have ratified them, as well as in accordance with the UNESCO Declaration concerning the Intentional Destruction of Cultural Heritage (2003) and international customary law protecting cultural property in the event of armed conflict, to ensure that the implementation of the World Heritage Convention is used to promote the achievement and maintenance of peace and security between and within States Parties”.<br>
+14/01/2021 8<br><br>
+29. “Recalling also the UNESCO Universal Declaration on Cultural Diversity (2001), States Parties should therefore acknowledge the reality of cultural diversity within and around many World Heritage properties, and promote a culturally pluralistic approach in strategies for their conservation and management. (…)”.<br><br>
+Decision of the World Heritage Committee 43 COM 7.3<br><br>
+10. "[The World Heritage Committee] Acknowledging the contribution of sustainable tourism to the 2030 Agenda on Sustainable Development and the positive impact it can have on local communities and the protection of World Heritage properties, nevertheless notes with concern that the number of properties negatively affected by overcrowding, congestion and tourism infrastructure development continues to increase; 11. Noting that the protection of Outstanding Universal Value (OUV) must be a central objective for all World Heritage properties, requests States Parties to develop visitor management plans and strategies that address the seasonality of tourism (smoothing visitor numbers over time and spreading visitors across sites), encourage longer more in-depth experiences promoting tourism products and services that reflect natural and cultural values, and limit access and activities to improve visitor flows and experiences, while reducing pressures on the attributes which underpin OUV."<br><br>
+Decision of the World Heritage Committee 43 COM 7.2<br><br>
+9. "[The World Heritage Committee] Reiterates its utmost concern about the continuing threats of wildlife poaching and illegal trafficking of wildlife products linked to impacts of conflict and organized crime, which is eroding the biodiversity and Outstanding Universal Value (OUV) of many World Heritage sites across the world, and urges States Parties to take the necessary measures to curb this problem, including through the implementation of the Convention on International Trade in Endangered Species of Wild Fauna and Flora (CITES);"<br><br>
+Decision of the World Heritage Committee 43 COM 5D<br><br>
+5. "[The World Heritage Committee] Recognizes the specifically delicate task of balancing World Heritage and Sustainable Development by the least developed countries, notably of the African region, given that it is faced with a disproportionally higher level of poverty globally; 6. Further recognizes the need to employ innovative and transformative solutions for reconciling World Heritage and Sustainable Development that will take into account the nature, complexity and specificity of socio-economic constraints that these less developed countries continue to face; (...) 11. Further calls upon African States Parties to focus their development efforts to benefit local communities, including them in the decision-making, and building on their knowledge and needs with progressive and proactive conservation of natural and cultural heritage; and to create enabling environments for innovative solutions inclusive of green and blue economies while progressing towards other SDGs."<br><br>
+Decision of the World Heritage Committee 43 COM 5C<br><br>
+5. "[The World Heritage Committee] Invites the States Parties undertaking activities towards the UN 2030 Agenda for Sustainable Development to include synergies with the WH-SDP [(Policy Document for the integration of a sustainable development perspective into the processes of the World Heritage Convention)], whenever possible, in order to tap into the potential of the World Heritage Convention to contribute to sustainable development."<br><br>
+Decision of the World Heritage Committee 42 COM 7<br><br>
+21. "[The World Heritage Committee] appeals to all Member States of UNESCO to cooperate in the fight against the illicit trafficking of cultural objects and illegal wildlife trade, as well as cultural heritage protection in general, including through the implementation of the Convention on International Trade in Endangered Species<br><br>
+14/01/2021 9<br><br>
+of Wild Fauna and Flora (CITES), and of United Nations Security Council Resolutions 2199 (2015), 2253 (2015) and 2347 (2017) and of the 1970 Convention on the Means of Prohibiting and Preventing the Illicit Import and Export and Transfer of Ownership of Cultural Property."<br><br>
+Decision of the World Heritage Committee 42 COM 5A<br><br>
+5. "[The World Heritage Committee] welcomes the increased collaboration among the Biodiversity-related Conventions through the Biodiversity Liaison Group and focused activities, including workshops, joint statements and awareness-raising."<br><br>
+Decision of the World Heritage Committee 41 COM 14<br><br>
+37. "[The World Heritage Committee] highlights the need to strengthen cooperation with other cultural heritage and biodiversity-related Conventions and intergovernmental programmes, with a view to contributing to improved conservation and sustainable management of World Heritage."
+Decision of the World Heritage Committee 41 COM 7<br>
+22. "[The World Heritage Committee] reiterates the importance of States Parties undertaking the most ambitious implementation of the Paris Agreement of the United Nations Framework Convention on Climate Change (UNFCCC) (…) and strongly invites all States Parties to ratify the Paris Agreement at the earliest possible opportunity and to undertake actions to address Climate Change under the Paris Agreement consistent with their common but differentiated responsibilities and respective capabilities, in the light of different national circumstances, that are fully consistent with their obligations within the World Heritage Convention to protect the OUV of all World Heritage properties."<br><br>
+Decision of the World Heritage Committee 40 COM 7<br><br>
+15. "[The World Heritage Committee] recommends that the World Heritage Centre strengthen its relations with other organizations working on Climate Change, particularly with the UNFCCC and the Intergovernmental Panel on Climate Change (IPCC) secretariats, and specifically with regard to the effect of Climate Change on World Heritage properties (…)."<br><br>
+Resolution 16 GA 10 of the General Assembly of States Parties to the World Heritage Convention
+7. "[The General Assembly] urges the States Parties to participate in the United Nations climate change conferences with a view to achieving a comprehensive post-Kyoto agreement, and to fund and support the research needs as identified in the adopted Policy document."<br><br>
+1.3<br><br>
+1.3 Shared Responsibility and International CooperationShared Responsibility and International Cooperation<br><br>
+1.3.1<br><br>
+1.3.1 GeneralGeneral<br><br>
+World Heritage Convention<br><br>
+Article 6<br><br>
+"1. Whilst fully respecting the sovereignty of the States on whose territory the cultural and natural heritage mentioned in Articles 1 and 2 is situated, and without prejudice to property right provided by national legislation, the States Parties to this Convention recognize that such heritage constitutes a world heritage for whose protection it is the duty of the international community as a whole to co-operate.<br>
+2. The States Parties undertake, in accordance with the provisions of this Convention, to give their help in the identification, protection, conservation and presentation of the cultural and natural heritage referred to in paragraphs 2 and 4 of Article 11 if the States on whose territory it is situated so request.<br><br>
+14/01/2021 10<br><br>
+3. Each State Party to this Convention undertakes not to take any deliberate measures which might damage directly or indirectly the cultural and natural heritage referred to in Articles 1 and 2 situated on the territory of other States Parties to this Convention."<br><br>
+Operational Guidelines<br><br>
+Paragraph 215<br><br>
+“The Committee develops and coordinates international co-operation in the area of research needed for the effective implementation of the Convention. States Parties are also encouraged to make resources available to undertake research, since knowledge and understanding are fundamental to the identification, management, and monitoring of World Heritage properties. States Parties are encouraged to support scientific studies and research methodologies, including traditional and indigenous knowledge held by local communities and indigenous peoples, with all necessary consent. Such studies and research are aimed at demonstrating the contribution that the conservation and management of World Heritage properties, their buffer zones and wider setting make to sustainable development, such as in conflict prevention and resolution, including, where relevant, by drawing on traditional ways of dispute resolution that may exist within communities."<br><br>
+Recommendation concerning the Protection, at National Level, of the Cultural and Natural Heritage<br><br>
+66. “Member States should co-operate with regard to the protection, conservation and presentation of the cultural and natural heritage, seeking aid, if it seems desirable, from international organizations, both intergovernmental and non-governmental. Such multilateral or bilateral co-operation should be carefully co-ordinated and should take the form of measures such as the following:<br>
+a) exchange of information and of scientific and technical publications;<br>
+b) organization of seminars and working parties on particular subjects;<br>
+c) provision of study and travel fellowships, and of scientific, technical and administrative staff, and equipment;<br>
+d) provision of facilities for scientific and technical training abroad, by allowing young research workers and technicians to take part in architectural projects, archaeological excavations and the conservation of natural sites;<br>
+e) co-ordination, within a group of Member States, of large-scale projects involving conservation, excavations, restoration and rehabilitation work, with the object of making the experience gained generally available”.<br><br>
+Strategic Action Plan for the Implementation of the World Heritage Convention 2012-2022
+“International cooperation and shared responsibility through the World Heritage Convention ensures effective conservation of our common cultural and natural heritage, nurtures respect and understanding among the world’s communities and cultures, and contributes to their sustainable development”.[1]<br><br>
+3. “Through cooperation, we seek:<br>
+• A sustainable environment in which States Parties are encouraged, supported and assisted by the international community to fully meet their obligations and enjoy their rights under the World Heritage Convention;<br>
+• Local, national and international communities, both now and in the future, which feel a connection to, engage with and benefit from the world’s natural and cultural heritage;<br>
+• A World Heritage List that is a credible, relevant and representative selection of the world’s most outstanding heritage sites;<br>
+14/01/2021 11<br><br>
+• A World Heritage system which remains transparent, equitable, accountable and efficient in an ever-changing world”.<br><br>
+[1] Considered as “Our Vision for 2022” within the Strategic Action Plan for the Implementation of the World Heritage Convention 2012-2022 (see page 2 of WHC-11/18.GA/11).<br>
+1.3.2<br><br>
+1.3.2 InternationInternational Assistanceal Assistance<br><br>
+Operational Guidelines<br><br>
+Paragraph 240<br><br>
+“A balance will be maintained in the allocation of resources between cultural and natural heritage and between Conservation and Management and Preparatory Assistance (...)”.<br><br>
+Operational Guidelines<br><br>
+Paragraph 239<br><br>
+“(…) The following considerations govern the Committee’s decisions in granting International Assistance:<br>
+a) the likelihood that the assistance will have a catalytic and multiplier effect (“seed money”) and promote financial and technical contributions from other sources;<br>
+b) when funds available are limited and a selection has to be made, preference is given to:<br>
+. a Least Developed Country or Low Income Economy as defined by the United Nations Economic and Social Council's Committee for Development Policy, or<br>
+. a Lower Middle Income Country as defined by the World Bank, or<br>
+. a Small Island Developing State (SIDS), or<br>
+. a State Party in a post-conflict situation;<br>
+c) the urgency of the protective measures to be taken at World Heritage properties;<br>
+d) whether the legislative, administrative and, wherever possible, financial commitment of the recipient State Party is available to the activity;<br>
+e) the impact of the activity on furthering the Strategic Objectives decided by the Committee;<br>
+f) the degree to which the activity responds to needs identified through the reactive monitoring process and/or the analysis of regional Periodic Reports;<br>
+g) the exemplary value of the activity in respect to scientific research and the development of cost effective conservation techniques;<br>
+h) the cost of the activity and expected results; and<br>
+i) the educational value both for the training of experts and for the general public.”
+Operational Guidelines<br>
+Paragraph 238<br><br>
+14/01/2021 12<br><br>
+“To support its Strategic Objectives, the Committee also allocates International Assistance in conformity with the priorities set out in its decisions and in the Regional Programmes it adopts as a follow up to Periodic Reports.”<br><br>
+Operational Guidelines<br><br>
+Paragraph 237<br><br>
+“States Parties in arrears of payment of their compulsory or voluntary contributions to the World Heritage Fund are not eligible for international assistance, it being understood that this provision does not apply to requests for emergency assistance.”<br><br>
+Operational Guidelines<br><br>
+Paragraph 233<br><br>
+“The Convention provides International Assistance to States Parties for the protection of the world cultural and natural heritage located on their territories and inscribed, or potentially suitable for inscription on the World Heritage List. International Assistance should be seen as supplementary to national efforts for the conservation and management of World Heritage and Tentative List properties when adequate resources cannot be secured at the national level.”<br><br>
+Operational Guidelines<br><br>
+Paragraph 189<br><br>
+“The Committee shall allocate a specific, significant portion of the World Heritage Fund to financing of possible assistance to World Heritage properties inscribed on the List of World Heritage in Danger.”<br><br>
+Decision of the World Heritage Committee 42 COM 7<br>
+23. "[The World Heritage Committee] urges States Parties, in coordination with the World Heritage Centre, to give priority within international assistance in implementing emergency measures to mitigate significant damages resulting from natural disasters that are likely to affect the Outstanding Universal Value of World Heritage properties."<br><br>
+1.3.3<br><br>
+1.3.3 Regional cooperationRegional cooperation<br><br>
+Operational Guidelines<br><br>
+Paragraph 205bis<br><br>
+“The Periodic Reporting process is used as an opportunity for regional exchange and cooperation and to enhance active co-ordination and synchronization between States Parties, particularly in the case of transboundary and transnational properties.”<br><br>
+Operational Guidelines<br><br>
+14/01/2021 13<br><br>
+Paragraph 201<br><br>
+“Periodic Reporting serves four main purposes:<br>
+a) to provide an assessment of the application of the World Heritage Convention by the State Party;<br>
+b) to provide an assessment as to whether the Outstanding Universal Value of the properties inscribed on the World Heritage List is being maintained over time;<br>
+c) to provide up-dated information about the World Heritage properties to record the changing circumstances and state of conservation of the properties;<br>
+d) to provide a mechanism for regional co-operation and exchange of information and experiences between States Parties concerning the implementation of the Convention and World Heritage conservation.”<br><br>
+1.4<br><br>
+1.4 Heritage policies at natiHeritage policies at national levelonal level<br><br>
+World Heritage Convention<br><br>
+Article 4<br><br>
+“Each State Party to this Convention recognizes that the duty of ensuring the identification, protection, conservation, presentation and transmission to future generations of the cultural and natural heritage referred to in Articles 1 and 2 and situated on its territory, belongs primarily to that State. It will do all it can to this end, to the utmost of its own resources and, where appropriate, with any international assistance and co-operation, in particular, financial, artistic, scientific and technical, which it may be able to obtain”.<br><br>
+Article 5<br><br>
+“To ensure that effective and active measures are taken for the protection, conservation and presentation of the cultural and natural heritage situated on its territory, each State Party to this Convention shall endeavour, in so far as possible, and as appropriate for each country:<br>
+(a) to adopt a general policy which aims to give the cultural and natural heritage a function in the life of the community and to integrate the protection of that heritage into comprehensive planning programmes;<br>
+(b) to set up within its territories, where such services do not exist, one or more services for the protection, conservation and presentation of the cultural and natural heritage with an appropriate staff and possessing the means to discharge their functions;<br>
+(c) to develop scientific and technical studies and research and to work out such operating methods as will make the State capable of counteracting the dangers that threaten its cultural or natural heritage;<br>
+(d) to take the appropriate legal, scientific, technical, administrative and financial measures necessary for the identification, protection, conservation, presentation and rehabilitation of this heritage; and<br>
+(e) to foster the establishment or development of national or regional centres for training in the protection, conservation and presentation of the cultural and natural heritage and to encourage scientific research in this field”.<br><br>
+Article 17<br><br>
+“The States Parties to this Convention shall consider or encourage the establishment of national public and private foundations or associations whose purpose is to invite donations for the protection of the cultural and natural heritage (...)”.<br><br>
+Operational Guidelines<br><br>
+14/01/2021 14<br><br>
+Paragraph 15<br><br>
+“While fully respecting the sovereignty of the States on whose territory the cultural and natural heritage is situated, States Parties to the Convention recognize the collective interest of the international community to cooperate in the protection of this heritage. States Parties to the World Heritage Convention, have the responsibility to:<br>
+a) ensure the identification, nomination, protection, conservation, presentation, and transmission to future generations of the cultural and natural heritage found within their territory, and give help in these tasks to other States Parties that request it;<br>
+b) adopt general policies to give the heritage a function in the life of the community;<br>
+c) integrate heritage protection into comprehensive planning programmes and coordination mechanisms, giving consideration in particular to the resilience of socio-ecological systems of properties;<br>
+d) establish services for the protection, conservation and presentation of the heritage;<br>
+e) develop scientific and technical studies to identify actions that would counteract the dangers that threaten the heritage;<br>
+f) take appropriate legal, scientific, technical, administrative and financial measures to protect the heritage;<br>
+g) foster the establishment or development of national or regional centres for training in the protection, conservation and presentation of the heritage and encourage scientific research in these fields;<br>
+h) not take any deliberate measures that directly or indirectly damage their heritage or that of another State Party to the Convention;<br>
+i) submit to the World Heritage Committee an inventory of properties suitable for inscription on the World Heritage List (referred to as a Tentative List);<br>
+j) make regular contributions to the World Heritage Fund, the amount of which is determined by the General Assembly of States Parties to the Convention;<br>
+k) consider and encourage the establishment of national, public and private foundations or associations to facilitate donations for the protection of World Heritage;<br>
+l) give assistance to international fund-raising campaigns organized for the World Heritage Fund;<br>
+m) use educational and information programmes to strengthen appreciation and respect by their peoples of the cultural and natural heritage defined in Articles 1 and 2 of the Convention, and to keep the public informed of the dangers threatening this heritage;<br>
+n) provide information to the World Heritage Committee on the implementation of the World Heritage Convention and state of conservation of properties;<br>
+o) contribute to and comply with the sustainable development objectives, including gender equality, in the World Heritage processes and in their heritage conservation and management systems.”
+Recommendation concerning the Protection, at National Level, of the Cultural and Natural Heritage<br>
+3. "In conformity with their jurisdictional and legislative requirements, each State should formulate, develop and apply as far as possible a policy whose principal aim should be to co-ordinate and make use of all scientific, technical, cultural and other resources available to secure the effective protection, conservation and presentation of the cultural and natural heritage.<br>" 4. "The cultural and natural heritage represents wealth, the protection, conservation and presentation of which impose responsibilities on the States in whose territory it is situated, both vis-a-vis their own nationals and vis-a-vis the international community as a whole; Member States should take such action as may be necessary to meet these responsibilities."<br><br>
+Decision of the World Heritage Committee 43 COM 5C<br><br>
+14/01/2021 15<br><br>
+4. "[The World Heritage Committee] (...) requests the States Parties to take a systematic and holistic approach to mainstreaming the WH-SDP [(Policy Document for the integration of a sustainable development perspective into the processes of the World Heritage Convention)] into their national and local policies, processes, and initiatives related to the implementation of the Convention and to development in and around World Heritage properties."<br><br>
+Decision of the World Heritage Committee 41 COM 5C<br><br>
+8. "[The World Heritage Committee] calls upon States Parties to ensure that sustainable development principles are mainstreamed into their national processes related to World Heritage, in full respect of the Outstanding Universal Value of World Heritage properties."<br><br>
+1.5<br><br>
+1.5 Relation between culture and natureRelation between culture and nature<br><br>
+World Heritage Capacity Building Strategy<br><br>
+4. “The Strategy (…) proposes a paradigm shift from treating natural and cultural heritage actors separately to the realization that capacity building actions can be strengthened by creating joint opportunities (…).”<br><br>
+Policy for the Integration of a Sustainable Development Perspective Into the Processes of the World Heritage Convention<br><br>
+8. “In applying a sustainable development perspective within the implementation of the World Heritage Convention, States Parties should also recognize the close links and interdependence of biological diversity and local cultures within the socio-ecological systems of many World Heritage properties. These have often developed over time through mutual adaptation between humans and the environment, interacting with and affecting one another in complex ways, and are fundamental components of the resilience of communities. This suggests that any policy aiming to achieve sustainable development will necessarily have to take into consideration the interrelationship of biological diversity with the local cultural context”.<br>
+11. “(…) A focus on cultural and biological diversity as well as the linkages between the conservation of cultural and natural heritage and the various dimensions of sustainable development will enable all those concerned to better engage with World Heritage, protect its OUV and fully harness its potential benefits for communities”.<br>
+15. “States Parties should ensure that biological and cultural diversity, as well as ecosystem services and benefits for people that contribute to environmental sustainability, are protected and enhanced within World Heritage properties, their buffer zones and their wider settings. To this end, States Parties should:<br>
+i. Integrate consideration for biological and cultural diversity as well as ecosystem services and benefits within the conservation and management of all World Heritage properties, including mixed and cultural ones,<br>
+ii. Avoid, and if not possible mitigate, all negative impacts on the environment and cultural diversity when conserving and managing World Heritage properties and their wider settings. This can be achieved by promoting environmental, social and cultural impact assessment tools when undertaking planning in sectors such as urban development, transport, infrastructure, mining and waste management - as well as by applying sustainable consumption and production patterns and promoting the use of renewable energy sources”.<br><br>
+Decision of the World Heritage Committee 41 COM 7<br><br>
+14/01/2021 16<br><br>
+37. "Recalling that the World Heritage Convention explicitly links the concepts of cultural and natural heritage, highlights the importance of promoting integrated approaches that strengthen holistic governance, improve conservation outcomes and contribute to sustainable development;<br>
+38. [The World Heritage Committee] notes with appreciation the growing interest and efforts by the States Parties and heritage practitioners to develop and apply integrated approaches to conservation of natural and cultural heritage, and encourages the States Parties, the World Heritage Centre and the Advisory Bodies, in cooperation with universities and other relevant actors, to continue and expand these efforts, in accordance with the Policy Document for the integration of a Sustainable Development Perspective into the Processes of the Convention (2015)."<br>
+Decision of the World Heritage Committee CONF 209 XIII.A.2-12<br>
+XIII.4 "[There is] (...) a draft unified set of criteria (...) to better reflect what has been described as the nature/culture continuum expressed at many World Heritage properties around the world".
+XIII.4 "[There is] (...) a draft unified set of criteria (...) to better reflect what has been described as the nature/culture continuum expressed at many World Heritage properties around the world".<br><br>
+14/01/2021 17<br><br>
+ANNEX I. List of documents and texts<br><br>
+Convention Concerning the Protection of the World Cultural and Natural Heritage<br><br>
+Policy for the integration of a sustainable development perspective into the processes of the World Heritage Convention (WHC-15/20.GA/INF.13)<br><br>
+OG Operational Guidelines for the Implementation of the World Heritage Convention (WHC.19/01 - 10 July 2019)<br><br>
+WHC-11/35.COM/9B Presentation and adoption of the World Heritage strategy for capacity building<br><br>
+Annex III. Revised draft recommendation concerning the protection, at national level of the cutural and natural heritage<br><br>
+WHC-11/18.GA/11 Future of the World Heritage Convention<br>
+Decision 43 COM 7.3<br>
+Decision 43 COM 7.2<br>
+Decision 43 COM 7.1<br>
+Decision 43 COM 5D<br>
+Decision 43 COM 5C<br>
+Decision 42 COM 14<br>
+Decision 42 COM 7<br>
+Decision 42 COM 5A<br>
+Decision 41 COM 14<br>
+Decision 41 COM 7<br>
+Decision 41 COM 5C<br>
+Decision 40 COM 7<br>
+Decision 35 COM 12B<br>
+Decision 27 COM 11.3<br>
+Decision 23 COM XIIIA.2-12<br>
+Decision 16 GA 10<br>
+Decision 19 GA 8<br>
+Decision 1 EXT.GA 3</p>
+          <br /><br />
+
+          <!-- Divider -->
+          <div class="flex items-center mb-3">
+            <div class="flex-1 border-t border-gray-600"></div>
+            <div class="flex-1 border-t border-gray-600"></div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="content-gradient px-10 py-10 mt-8">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8"
+            >
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-blue-700 mb-3">About</h3>
+                  <h3 class="text-sm text-gray-400">
+                    This website is dedicated to promoting knowledge and
+                    awareness of Cambodian and World Heritage Sites.
+                  </h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Cambodian Heritage Highlights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >World Heritage Insights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Research & Education</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Preservation Initiatives</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >UNESCO World Heritage Centre</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Cambodian Ministry of Culture and Fine Arts</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Conservation Guidelines</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">
+                    Contact & Credits
+                  </h3>
+                  <h3 class="text-sm text-gray-400">name<br />@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                  <h3 class="text-sm text-gray-400">© 2025 Name</h3>
+                  <br /><br />
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5"
+                  />
+                </a>
+              </div>
+            </div>
+            <br /><br />
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input value="Click me" type="button" onclick="countRabbits()">
+    <button id="elem" type="button">Click Me</button>
+    <button id="elem1" type="button">Click Me 1</button>
+    <button id="elem2" type="button">Click Me 2</button>
+    <button id="mybutton" type="button">Try it</button>
+    <button id="mybutton1" type="button">Try it 1</button>
+</body>
+    <script>
+        let countRabbits = () => {
+            for (let i = 1; i < 5; i++) {
+                console.log(`Rabbit number: ${i}`);
+            }
+        }
+        elem.onclick = function() {
+            console.log('Thank you');
+        };
+        elem1.onclick = console.log('Thank you 1');
+        function sayThanks() {
+            alert('Thanks!');
+        }
+        elem2.onclick = sayThanks;
+        function id(id) {
+            return document.getElementById(id);
+        }
+        function id1(id, event, functionname) {
+            return document.getElementById(id).addEventListener(event, functionname);
+        }
+        id("mybutton").addEventListener("click", function(){
+            alert("Hello World!");
+        });
+        id1("mybutton1", "click", function(){
+            alert("Hello World 1!");
+        });
+        let y = 5;
+        if(true){
+            if (true){
+                let y = 10;
+                console.log(y);
+            }
+        }
+        let z = 5;
+        if(true){
+            let letInsideIfBlock = "I'm only in if block";
+        }
+        console.log(letInsideIfBlock);
+    </script>
+</html>

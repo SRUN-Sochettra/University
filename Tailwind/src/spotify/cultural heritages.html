@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Heritage</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #0267f6 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #f3efef;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-blue-950 text-white overflow-hidden h-screen overflow-x-hidden"
+  >
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-blue-950 border-b border-gray-800 rounded-lg m-1 pt-3"
+    >
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!--World Heritage Logo -->
+        <img
+          src=" https://th.bing.com/th/id/R.43fa41ff113cf3655be512b743472345?rik=zy4T7p3sHvdWgQ&riu=http%3a%2f%2fstatic.newworldencyclopedia.org%2fthumb%2fd%2fda%2fWorld_Heritage_logo.png%2f200px-World_Heritage_logo.png&ehk=b5ChWJuQPYfJJ0c8lD8Oyy6Y7xzZbPEZFaHFZk3EmCA%3d&risl=&pid=ImgRaw&r=0"
+          alt="World Heritage Logo"
+          class="w-11 h-11"
+        />
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div class="flex items-center w-96 bg-white rounded-2xl px-4 py-2">
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-white-400 text-gray-400 focus:outline-none"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/Tailwind/src/spotify/introduction.html"
+          class="text-gray-300 hover:text-white"
+          >Introduction
+        </a>
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% content-gradient bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg"
+      >
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a
+            href="/Tailwind/src/spotify/world.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Home</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/cambodia show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/world show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a
+              href="/Tailwind/src/spotify/built heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Built Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/natural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Natural Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/cultural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Cultural Heritages</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Collections / Playlists</a
+            >
+            <a
+              href="/Tailwind/src/spotify/policies.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Preservation & Policies</a
+            >
+            <a
+              href="/Tailwind/src/spotify/about unesco.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >About UNESCO</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Settings</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Content Area -->
+        <div
+          class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide mr-1 rounded-lg"
+        >
+          <!-- Header -->
+          <h5 class="mb-8 text-black font-bold">About UNESCO</h5>
+          <p class="text-black text-justify ">
+Cultural heritage represents the extraordinary legacy of human creativity, knowledge, and traditions that have been created, preserved, and transmitted across generations. It encompasses both tangible and intangible elements that define the identity, beliefs, values, and artistic expressions of communities throughout history. Tangible cultural heritage includes monuments, historic buildings, archaeological sites, sculptures, manuscripts, traditional crafts, and other physical artifacts that provide a window into the past, showing how societies have lived, worked, governed themselves, and expressed their creativity. Intangible cultural heritage, on the other hand, encompasses non-physical practices, skills, and expressions, such as oral traditions, performing arts, rituals, festivals, folklore, music, dance, culinary traditions, and languages, which are vital in maintaining cultural diversity, social cohesion, and a sense of belonging. Together, these forms of heritage illustrate the richness and complexity of human life, offering insights into the spiritual, intellectual, and artistic achievements of civilizations across time and space.<br><br>
+
+Preserving cultural heritage is not only about protecting objects and traditions from physical decay or disappearance but also about safeguarding the knowledge, stories, and practices that give meaning to societies. Global organizations such as UNESCO play a pivotal role in recognizing and protecting cultural heritage through programs such as the World Heritage List and the Intangible Cultural Heritage Lists, which identify sites and practices of outstanding universal value. These initiatives help mobilize international attention, resources, and collaboration to ensure that cultural treasures are maintained for future generations. Cultural heritage fosters education and awareness, enabling people to learn about history, philosophy, religion, art, and daily life in ways that textbooks alone cannot convey. It also inspires creativity and innovation, influencing contemporary art, architecture, literature, and performance by connecting modern creators with centuries of accumulated human knowledge and aesthetic expression.<br><br>
+
+Cultural heritage is deeply intertwined with identity and community. It provides individuals and societies with a sense of belonging, pride, and continuity, connecting them to their ancestors, traditions, and shared experiences. In Cambodia, for example, cultural heritage includes iconic sites like Angkor Wat and the Royal Palace, as well as intangible practices such as Apsara dance, shadow puppetry (Lakhon Sbeak Thom), and traditional festivals, all of which reflect the history, spirituality, and artistic ingenuity of the Khmer people. Globally, cultural heritage is equally diverse, ranging from the pyramids of Egypt and the ancient city of Petra in Jordan to Japan’s tea ceremonies, the carnivals of Brazil, and the storytelling traditions of West Africa. Each site, festival, and practice serves as a testament to the creativity, resilience, and shared humanity of its people, while also offering opportunities for intercultural dialogue, tourism, and global understanding.<br><br>
+
+Protecting cultural heritage is increasingly critical in today’s rapidly changing world, as globalization, urbanization, climate change, armed conflicts, and neglect threaten both tangible and intangible forms of heritage. By safeguarding cultural heritage, societies maintain the richness of human expression, preserve the lessons of the past, and provide inspiration for future generations. Cultural heritage strengthens social cohesion, fosters mutual respect among diverse communities, and reminds humanity of the importance of creativity, diversity, and continuity. It serves as a bridge between the past and present, allowing people to celebrate their roots, learn from their ancestors, and participate in a global tapestry of shared knowledge and traditions. Ultimately, cultural heritage is not merely a reflection of what has been; it is a living, evolving force that educates, inspires, and unites people, ensuring that the extraordinary achievements, wisdom, and creativity of humanity continue to thrive and influence generations to come.
+          </p><br /><br />
+
+          <!-- Divider -->
+          <div class="flex items-center mb-3">
+            <div class="flex-1 border-t border-gray-600"></div>
+            <div class="flex-1 border-t border-gray-600"></div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="content-gradient px-10 py-10 mt-8">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8"
+            >
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-blue-700 mb-3">About</h3>
+                  <h3 class="text-sm text-gray-400">
+                    This website is dedicated to promoting knowledge and
+                    awareness of Cambodian and World Heritage Sites.
+                  </h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Cambodian Heritage Highlights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >World Heritage Insights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Research & Education</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Preservation Initiatives</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >UNESCO World Heritage Centre</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Cambodian Ministry of Culture and Fine Arts</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Conservation Guidelines</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">
+                    Contact & Credits
+                  </h3>
+                  <h3 class="text-sm text-gray-400">name<br />@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                  <h3 class="text-sm text-gray-400">© 2025 Name</h3>
+                  <br /><br />
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5"
+                  />
+                </a>
+              </div>
+            </div>
+            <br /><br />
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

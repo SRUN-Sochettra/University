@@ -1,0 +1,8 @@
+@import "tailwindcss";
+@import "flowbite/src/themes/default.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "flowbite/src/components/button.css";
+@import "flowbite/src/components/card.css";
+@import "tailwindcss/preflight";

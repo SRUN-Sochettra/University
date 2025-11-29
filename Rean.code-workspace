@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "lg lg"
+		},
+		{
+			"path": "web"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "web"
+	}
+}

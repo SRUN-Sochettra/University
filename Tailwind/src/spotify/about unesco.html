@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Heritage</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #0267f6 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #f3efef;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-blue-950 text-white overflow-hidden h-screen overflow-x-hidden"
+  >
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-blue-950 border-b border-gray-800 rounded-lg m-1 pt-3"
+    >
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!--World Heritage Logo -->
+        <img
+          src=" https://th.bing.com/th/id/R.43fa41ff113cf3655be512b743472345?rik=zy4T7p3sHvdWgQ&riu=http%3a%2f%2fstatic.newworldencyclopedia.org%2fthumb%2fd%2fda%2fWorld_Heritage_logo.png%2f200px-World_Heritage_logo.png&ehk=b5ChWJuQPYfJJ0c8lD8Oyy6Y7xzZbPEZFaHFZk3EmCA%3d&risl=&pid=ImgRaw&r=0"
+          alt="World Heritage Logo"
+          class="w-11 h-11"
+        />
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div class="flex items-center w-96 bg-white rounded-2xl px-4 py-2">
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-white-400 text-gray-400 focus:outline-none"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/Tailwind/src/spotify/introduction.html"
+          class="text-gray-300 hover:text-white"
+          >Introduction
+        </a>
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% content-gradient bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg"
+      >
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a
+            href="/Tailwind/src/spotify/world.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Home</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/cambodia show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/world show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a
+              href="/Tailwind/src/spotify/built heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Built Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/natural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Natural Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/cultural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Cultural Heritages</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Collections / Playlists</a
+            >
+            <a
+              href="/Tailwind/src/spotify/policies.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Preservation & Policies</a
+            >
+            <a
+              href="/Tailwind/src/spotify/about unesco.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >About UNESCO</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Settings</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Content Area -->
+        <div
+          class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide mr-1 rounded-lg"
+        >
+          <!-- Header -->
+          <h5 class="mb-8 text-black font-bold">About UNESCO</h5>
+          <p class="text-black text-justify ">UNESCO, the United Nations Educational, Scientific and Cultural Organization, was founded in 1945 in the aftermath of World War II, at a time when the world recognized the urgent need for international cooperation to prevent future conflicts and promote peace. Rooted in the principle that education, science, culture, and communication are essential foundations for building a more peaceful, equitable, and sustainable world, UNESCO has worked for decades to connect nations, communities, and individuals in the pursuit of knowledge, understanding, and cultural preservation. Its mission goes beyond mere advocacy; it actively engages in projects and programs that protect both tangible and intangible heritage, from the conservation of historic monuments, ancient ruins, and natural wonders to the safeguarding of traditional music, dance, crafts, languages, and oral histories. Through the designation of World Heritage Sites and the recognition of Intangible Cultural Heritage, UNESCO ensures that humanity’s shared cultural and natural treasures are preserved for generations to come, fostering pride, identity, and continuity within communities while promoting cross-cultural understanding globally.<br><br>
+
+In the field of education, UNESCO strives to ensure that quality learning opportunities are accessible to all, advocating for inclusive education systems, literacy programs, and innovative learning methodologies that empower individuals and strengthen societies. In science and technology, UNESCO promotes research, sustainable resource management, and environmental conservation, addressing some of the most pressing global challenges, including climate change, biodiversity loss, and water scarcity. The organization also champions freedom of expression, access to information, and media development, recognizing that informed societies are essential for democratic participation and social progress. Through its numerous conventions, networks, and partnerships with governments, civil society, and other international organizations, UNESCO serves as a bridge that brings together diverse stakeholders to share knowledge, best practices, and solutions to complex global issues.<br><br>
+
+By combining the preservation of cultural identity with the advancement of knowledge and the promotion of human rights, UNESCO has become a unique platform that balances tradition with innovation. It not only protects the legacy of the past but also inspires creativity, dialogue, and collaboration for the future, helping humanity navigate the challenges of globalization while honoring local cultures and histories. Every initiative, from safeguarding endangered heritage sites to promoting global education standards, reinforces UNESCO’s vision: a world in which peace, sustainable development, cultural diversity, and human dignity are upheld, and where people everywhere can thrive, learn, and connect through shared values and knowledge. In essence, UNESCO represents a global commitment to nurturing the intellectual, cultural, and social fabric of humanity, reminding us that despite differences in geography, language, or tradition, we are united by our common responsibility to protect, learn from, and celebrate the richness of our collective heritage.</p>
+
+          <br /><br />
+
+          <!-- Divider -->
+          <div class="flex items-center mb-3">
+            <div class="flex-1 border-t border-gray-600"></div>
+            <div class="flex-1 border-t border-gray-600"></div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="content-gradient px-10 py-10 mt-8">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8"
+            >
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-blue-700 mb-3">About</h3>
+                  <h3 class="text-sm text-gray-400">
+                    This website is dedicated to promoting knowledge and
+                    awareness of Cambodian and World Heritage Sites.
+                  </h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Cambodian Heritage Highlights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >World Heritage Insights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Research & Education</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Preservation Initiatives</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >UNESCO World Heritage Centre</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Cambodian Ministry of Culture and Fine Arts</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Conservation Guidelines</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">
+                    Contact & Credits
+                  </h3>
+                  <h3 class="text-sm text-gray-400">name<br />@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                  <h3 class="text-sm text-gray-400">© 2025 Name</h3>
+                  <br /><br />
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5"
+                  />
+                </a>
+              </div>
+            </div>
+            <br /><br />
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

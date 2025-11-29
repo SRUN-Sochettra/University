@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Heritage</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #0267f6 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #f3efef;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-blue-950 text-white overflow-hidden h-screen overflow-x-hidden"
+  >
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-blue-950 border-b border-gray-800 rounded-lg m-1 pt-3"
+    >
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!--World Heritage Logo -->
+        <img
+          src=" https://th.bing.com/th/id/R.43fa41ff113cf3655be512b743472345?rik=zy4T7p3sHvdWgQ&riu=http%3a%2f%2fstatic.newworldencyclopedia.org%2fthumb%2fd%2fda%2fWorld_Heritage_logo.png%2f200px-World_Heritage_logo.png&ehk=b5ChWJuQPYfJJ0c8lD8Oyy6Y7xzZbPEZFaHFZk3EmCA%3d&risl=&pid=ImgRaw&r=0"
+          alt="World Heritage Logo"
+          class="w-11 h-11"
+        />
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div class="flex items-center w-96 bg-white rounded-2xl px-4 py-2">
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-white-400 text-gray-400 focus:outline-none"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewbox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/Tailwind/src/spotify/introduction.html"
+          class="text-gray-300 hover:text-white"
+          >Introduction
+        </a>
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% content-gradient bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg"
+      >
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a
+            href="/Tailwind/src/spotify/world.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Home</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/cambodia show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a
+            href="/Tailwind/src/spotify/world show all.html"
+            class="flex items-center space-x-3 text-blue-600 hover:text-blue-900 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a
+              href="/Tailwind/src/spotify/built heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Built Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/natural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Natural Heritages</a
+            >
+            <a
+              href="/Tailwind/src/spotify/cultural heritages.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Cultural Heritages</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Collections / Playlists</a
+            >
+            <a
+              href="/Tailwind/src/spotify/policies.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Preservation & Policies</a
+            >
+            <a
+              href="/Tailwind/src/spotify/about unesco.html"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >About UNESCO</a
+            >
+            <a
+              href="#"
+              class="block text-blue-600 hover:text-blue-900 transition-colors"
+              >Settings</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Content Area -->
+        <div
+          class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide mr-1 rounded-lg"
+        >
+          <!-- Header -->
+          <h5 class="mb-8 text-black font-bold">About UNESCO</h5>
+          <p class="text-black text-justify ">Natural heritage refers to the planet’s most remarkable and irreplaceable elements of the natural environment, including landscapes, forests, mountains, rivers, lakes, wetlands, deserts, coral reefs, and other ecosystems that possess outstanding scientific, ecological, aesthetic, or cultural value. These areas are living testimonies to Earth’s biological diversity, geological history, and ecological complexity, reflecting processes that have unfolded over millions of years. Unlike built heritage, which is shaped by human hands, natural heritage represents the inherent beauty and functionality of the natural world, providing essential habitats for countless species of flora and fauna, regulating climate patterns, maintaining clean water and air, and offering resources that sustain human life. Many natural heritage sites are also deeply entwined with human culture, spirituality, and traditional knowledge, as local communities have long relied on forests, rivers, mountains, and wetlands for food, medicine, shelter, and cultural practices, often passing down ecological wisdom through generations.<br><br>
+
+Organizations such as UNESCO recognize the global significance of natural heritage through initiatives like the World Heritage Sites program and Biosphere Reserves, identifying areas of “outstanding universal value” to ensure their preservation and sustainable management. Protecting natural heritage is crucial, particularly in the face of growing threats such as deforestation, pollution, urbanization, overexploitation of natural resources, invasive species, and the accelerating impacts of climate change. Failure to conserve these sites not only risks the loss of biodiversity and ecosystem services but also diminishes humanity’s connection to the natural world and deprives future generations of opportunities to learn, explore, and draw inspiration from nature’s wonders.<br><br>
+
+Natural heritage serves as a source of scientific discovery, education, and recreation, allowing people to study ecosystems, understand evolutionary processes, and witness the intricate relationships that sustain life on Earth. It also supports cultural and economic benefits, including ecotourism, traditional livelihoods, and artistic inspiration. Globally, iconic natural heritage sites such as the Great Barrier Reef in Australia, the Amazon Rainforest in South America, Yellowstone National Park in the United States, the Galápagos Islands in Ecuador, and Mount Kilimanjaro in Africa showcase the diversity, grandeur, and ecological significance of nature’s creations. In Cambodia, natural treasures such as the Tonle Sap Biosphere Reserve, Virachey National Park, and Cardamom Mountains represent some of Southeast Asia’s richest ecosystems, harboring endangered species, rare plants, and vital water systems that sustain local communities and contribute to the country’s ecological balance.<br><br>
+
+Protecting natural heritage is not merely a matter of conservation—it is a responsibility to maintain the delicate balance of life on Earth. By safeguarding forests, rivers, wetlands, and other natural environments, societies protect biodiversity, ensure clean air and water, support climate regulation, and preserve spaces of wonder, reflection, and inspiration. Natural heritage reminds humanity of the intricate interconnectedness of life, the beauty and resilience of the Earth, and the urgent need to live in harmony with the environment. It is both a legacy and a promise: a legacy of the natural world as it has existed for millennia, and a promise to future generations that they, too, can experience, learn from, and be inspired by the extraordinary diversity and richness of life on our planet. By valuing, protecting, and sustainably managing natural heritage, humanity affirms its role as a steward of the Earth, ensuring that these vital resources endure as sources of knowledge, inspiration, and sustenance for all living beings.</p><br /><br />
+
+          <!-- Divider -->
+          <div class="flex items-center mb-3">
+            <div class="flex-1 border-t border-gray-600"></div>
+            <div class="flex-1 border-t border-gray-600"></div>
+          </div>
+
+          <!-- Footer -->
+          <footer class="content-gradient px-10 py-10 mt-8">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8"
+            >
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-blue-700 mb-3">About</h3>
+                  <h3 class="text-sm text-gray-400">
+                    This website is dedicated to promoting knowledge and
+                    awareness of Cambodian and World Heritage Sites.
+                  </h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Cambodian Heritage Highlights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >World Heritage Insights</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Research & Education</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="text-blue-800 hover:text-blue-500"
+                        >Preservation Initiatives</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >UNESCO World Heritage Centre</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Cambodian Ministry of Culture and Fine Arts</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-500 text-blue-800"
+                        >Conservation Guidelines</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-blue-600 mb-3">
+                    Contact & Credits
+                  </h3>
+                  <h3 class="text-sm text-gray-400">name<br />@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                  <h3 class="text-sm text-gray-400">© 2025 Name</h3>
+                  <br /><br />
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 hover:bg-gray-300"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5"
+                  />
+                </a>
+              </div>
+            </div>
+            <br /><br />
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

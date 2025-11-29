@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Web Player</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #1f2937 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #171717;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+    </style>
+  </head>
+  <body class="gradient-bg text-white overflow-hidden h-screen">
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-black border-b border-gray-800"
+    >
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!-- Spotify Logo -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+          alt="Spotify"
+          class="w-8 h-8"
+        />
+
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+        >
+          <a href="/src/spotify/Web.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 24 24"
+              class="w-5 h-5"
+            >
+              <path d="M12 3l9 8h-3v9h-12v-9h-3z" /></svg></a>
+        </button>
+
+        <!-- Search Bar -->
+        <div
+          class="flex items-center w-96 bg-neutral-800 rounded-full px-4 py-2"
+        >
+          <input
+            type="text"
+            placeholder="What do you want to play?"
+            class="w-full bg-transparent text-sm placeholder-gray-400 text-white focus:outline-none"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewBox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <a href="#" class="text-gray-300 hover:text-white">Premium</a>
+        <a href="#" class="text-gray-300 hover:text-white">Support</a>
+        <a href="#" class="text-gray-300 hover:text-white">Download</a>
+        <span class="text-gray-500">|</span>
+        <a href="#" class="text-gray-300 hover:text-white">Install App</a>
+        <a
+          href="/src/spotify/Sign up.Html"
+          class="text-gray-300 hover:text-white"
+          >Sign up</a
+        >
+        <a
+          href="/src/spotify/Login.html"
+          class="bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-gray-200"
+          >Log in</a
+        >
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div class="w-64 bg-black bg-opacity-90 p-6 flex flex-col">
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-8">
+          <a
+            href="/src/spotify/Web.html"
+            class="flex items-center space-x-3 text-white hover:text-gray-300 transition-colors"
+          >
+            <i data-lucide="home" class="w-5 h-5"></i>
+            <span class="font-medium">Home</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+          >
+            <i data-lucide="search" class="w-5 h-5"></i>
+            <span class="font-medium">Search</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+          >
+            <i data-lucide="library" class="w-5 h-5"></i>
+            <span class="font-medium">Your Library</span>
+          </a>
+        </nav>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide">
+          <div class="space-y-3">
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Liked Songs</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Today's Top Hits</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >RapCaviar</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Pop Rising</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Chill Hits</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Discover Weekly</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Release Radar</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide">
+          <!-- Header -->
+          <div></div>
+          <!-- Install App -->
+          <section>
+            <div
+              class="min-h-screen bg-gradient-to-r from-green-300 via-pink-300 to-gray-200 flex items-start justify-start p-8 rounded-3xl"
+            >
+              <div class="max-w-4xl text-left">
+                <!-- Spotify Logo -->
+                <div class="flex items-center justify-start space-x-2 mb-6">
+                  <img
+                    src="https://img.icons8.com/?size=100&id=11116&format=png&color=000000"
+                    alt="Spotify Logo"
+                    class="h-8 w-8"
+                  />
+                  <span class="text-xl font-bold text-black">Spotify</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="text-3xl md:text-4xl font-bold text-black mb-4">
+                  Download Spotify for Windows
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="text-xl text-black mb-8">
+                  Enjoy high-quality audio and offline playback, plus Windows
+                  Game Bar integration and a friend activity feed that lets you
+                  see what your friends are listening to in real time.
+                </p>
+
+                <!-- Buttons -->
+                <div
+                  class="flex flex-col md:flex-row items-start justify-start gap-4 mb-10"
+                >
+                  <a
+                    href="#"
+                    class="flex items-center space-x-2 bg-black text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-800 whitespace-pre-wrap"
+                  >
+                    <img
+                      src="https://img.icons8.com/?size=100&id=P0xhuRBy8MnO&format=png&color=000000"
+                      alt="Microsoft Store"
+                      class="h-10 w-10"
+                    />
+                    <span class="flex flex-col leading-tight">
+                      <span class="text-[11px] text-neutral-300"
+                        >Download from the</span
+                      >
+                      <span class="text-base font-semibold"
+                        >Microsoft Store</span
+                      >
+                    </span>
+                  </a>
+                  <a
+                    href="#"
+                    class="text-black ml-3 mt-4 underline hover:text-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black/30 rounded"
+                  >
+                    Download directly from Spotify.
+                  </a>
+                </div>
+                <!-- Mockup Image -->
+                <div class="rounded-xl shadow-2xl overflow-hidden">
+                  <img
+                    src="https://cdn.neowin.com/news/images/uploaded/2022/12/1670332296_spotify_win_11.jpg"
+                    alt="Spotify Mockup"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Hide scrollbar utility -->
+          <style>
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+            .scrollbar-hide {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+          </style>
+          <!-- Footer -->
+          <footer class="bg-neutral-900 px-10 py-10 mt-8">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8"
+            >
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Company -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Company</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-green-500">About</a></li>
+                    <li><a href="#" class="hover:text-green-500">Jobs</a></li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >For the Record</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Communities -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Communities</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-green-500">For Artists</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Developers</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Advertising</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Investors</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Vendors</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Useful Links -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Useful links</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-green-500">Support</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Free Mobile App</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Popular by Country</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Import your music</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Spotify Plans -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Spotify Plans</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Premium Individual</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Premium Duo</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Premium Family</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Premium Student</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Spotify Free</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/452229/instagram-1.svg"
+                    alt="Instagram"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/452123/twitter.svg"
+                    alt="Twitter"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Bottom -->
+            <div
+              class="border-t border-gray-700 mt-8 pt-6 text-sm text-gray-400"
+            >
+              © 2025 Spotify AB
+            </div>
+            <br />
+          </footer>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>

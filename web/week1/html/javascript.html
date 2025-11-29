@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="h1"></h1>
+    <p class="text"></p>
+    <h2></h2>
+    <h2 id="h2" style="color: blue">dada</h2>
+    <h3 id="h3" style="color: blue">dada</h3>
+    <button type="button" id="btn">Try it</button>
+    <button type="button" id="click">Click me</button>
+    <button type="button" onclick="greeting()">Click me</button>
+    <script>
+      function greeting() {
+        alert("Hello, welcome to my website!");
+      }
+      document.getElementById("h1").innerHTML = "Hello";
+      document.getElementsByClassName("text")[0].innerHTML =
+        "Weelcome to Javascript";
+      document.getElementsByTagName("h2")[0].innerHTML = "Hi";
+      document.getElementById("h2").style.color = "red";
+      document.querySelector("#h3").style.color = "yellow";
+      click.onclick = function () {
+        console.log("Hello world");
+      };
+      document.querySelector("#btn").addEventListener("click", function () {
+        alert("Hello World");
+      });
+    </script>
+  </body>
+</html>

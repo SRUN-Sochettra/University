@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Web Player</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #1f2937 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #171717;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+    </style>
+  </head>
+  <body class="gradient-bg text-white overflow-hidden h-screen">
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-black border-b border-gray-800"
+    >
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!-- Spotify Logo -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+          alt="Spotify"
+          class="w-8 h-8"
+        />
+
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+        >
+          <a href="/src/spotify/Web.html"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 24 24"
+              class="w-5 h-5"
+            >
+              <path d="M12 3l9 8h-3v9h-12v-9h-3z" /></svg></a>
+        </button>
+
+        <!-- Search Bar -->
+        <div
+          class="flex items-center w-96 bg-neutral-800 rounded-full px-4 py-2"
+        >
+          <input
+            type="text"
+            placeholder="What do you want to play?"
+            class="w-full bg-transparent text-sm placeholder-gray-400 text-white focus:outline-none"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewBox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <a href="#" class="text-gray-300 hover:text-white">Premium</a>
+        <a href="#" class="text-gray-300 hover:text-white">Support</a>
+        <a href="#" class="text-gray-300 hover:text-white">Download</a>
+        <span class="text-gray-500">|</span>
+        <a
+          href="/src/spotify/Install page.Html"
+          class="text-gray-300 hover:text-white"
+          >Install App</a
+        >
+        <a
+          href="/src/spotify/Sign up.Html"
+          class="text-gray-300 hover:text-white"
+          >Sign up</a
+        >
+        <a
+          href="/src/spotify/Login.html"
+          class="bg-white text-black px-5 py-2 rounded-full font-semibold hover:bg-gray-200"
+          >Log in</a
+        >
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div class="w-64 bg-black bg-opacity-90 p-6 flex flex-col">
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-8">
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-white hover:text-gray-300 transition-colors"
+          >
+            <i data-lucide="home" class="w-5 h-5"></i>
+            <span class="font-medium">Home</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+          >
+            <i data-lucide="search" class="w-5 h-5"></i>
+            <span class="font-medium">Search</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+          >
+            <i data-lucide="library" class="w-5 h-5"></i>
+            <span class="font-medium">Your Library</span>
+          </a>
+        </nav>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide">
+          <div class="space-y-3">
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Liked Songs</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Today's Top Hits</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >RapCaviar</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Pop Rising</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Chill Hits</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Discover Weekly</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Release Radar</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden">
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide">
+          <!-- Header -->
+          <div class="mb-8"></div>
+          <!-- Popular Artists -->
+          <section>
+            <div class="flex justify-between items-center mb-6">
+              <h2 class="text-2xl font-bold mb-5">Popular artists</h2>
+
+            </div>
+
+            <!-- Grid instead of flex overflow -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-6">
+              <!-- Artist Card -->
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://i.scdn.co/image/ab6761610000e5ebd7f75367f4aed75fee751910"
+                    alt="La Cima Cartel"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <!-- Play button -->
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  La Cima Cartel
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+
+              <!-- Artist Card (repeat for other artists) -->
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fwp-content%2Fblogs.dir%2F6%2Ffiles%2F2023%2F07%2Fjennieck00.jpeg?q=75&w=800&cbr=1&fit=max"
+                    alt="Jennie"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Jennie
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://i.cdn.newsbytesapp.com/images/23024581714102557.jpeg"
+                    alt="RM"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  RM
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://www.tjtoday.org/wp-content/uploads/2024/01/harry-styles.jpg"
+                    alt="Harry_Styles (X)"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Harry_Styles (X)
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://www.tjtoday.org/wp-content/uploads/2024/01/dua-lipa-600x398.jpg"
+                    alt="Dua Lipa  "
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Dua Lipa
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://www.tjtoday.org/wp-content/uploads/2024/01/SZA-600x400.webp"
+                    alt="SZA"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  SZA
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://www.tjtoday.org/wp-content/uploads/2024/01/tate-mcrae-600x400.webp"
+                    alt="Tate McRae"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Tate McRae
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://i0.wp.com/axeanfestival.com/wp-content/uploads/2022/08/vannda-pr-e1706683155784.png?fit=500%2C500&ssl=1"
+                    alt="VannDa (វណ្ណដា) "
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  VannDa (វណ្ណដា)
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://www.rollingstone.com/wp-content/uploads/2021/09/Socchata-Raffles-1292-of-220.jpg"
+                    alt="Sin Setsochhata"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Sin Setsochhata
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThDdC6vBRFnVuCNvK1k0xgptiePtzdGy-d4_dxBDZCIywRE56YNXWLo44eoIZkGgqBQiw&usqp=CAU"
+                    alt="រ៉ា ប៊ី"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  រ៉ា ប៊ី
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://www.top10asia.org/wp-content/uploads/2022/09/69859560_1067929550265029_2835366583528905326_n.jpg"
+                    alt="Khemarak Sereymun"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Khemarak Sereymun
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://chinesevoyage.org/wp-content/uploads/2024/10/cpop-tang-yi-singer.png"
+                    alt="Tangyi"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Tangyi
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://news.cgtn.com/news/3d416a4e344d6a4d/img/fe2e8693-a38f-43ec-b4eb-799b23ae25d2.jpg"
+                    alt="Kazakh"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Kazakh
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://variety.com/wp-content/uploads/2020/02/cambodian-rock-band.jpg"
+                    alt="Cambodian Rock Band"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Cambodian Rock Band
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://en.people.cn/NMediaFile/2018/0604/FOREIGN201806041355000428384753464.jpg"
+                    alt="Kris Wu"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Kris Wu
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://www.tjtoday.org/wp-content/uploads/2024/01/bad-bunny-600x382.jpg"
+                    alt="Bad Bunny "
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Bad Bunny
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://i0.wp.com/axeanfestival.com/wp-content/uploads/2022/08/sophia-kao.jpg?fit=500%2C500&ssl=1"
+                    alt="Sophia Kao (កៅ សុភា)"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Sophia Kao (កៅ សុភា)
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhctsRM6_Fwb-m2uuHivEeTnRtFKjIyoK7l_u4FYyFVEwIUzBxjTcrkIFuxW7rEJr3tOcNqaoWczmEb2mxGMKVtpYWoEQZREBvBbjbJdo59opW7lqK7Ku5M7f7Vp8ce1yIvGSH83J96HPY/s1600/13103513_569636573207298_640766181442042963_n.jpg"
+                    alt="Reth Susana"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Reth Susana
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://thebmeta.wordpress.com/wp-content/uploads/2016/05/11392971_844083175681630_4089654992859055648_n.png?w=960&h=956&crop=1"
+                    alt="sinsisamut"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  sinsisamut
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+              <div
+                class="flex flex-col items-center rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all p-4"
+              >
+                <div class="relative group aspect-square w-full">
+                  <img
+                    src="https://images.augustman.com/wp-content/uploads/sites/3/2023/05/26195539/royal-k-pop-idol.jpeg?tr=w-1920"
+                    alt="Jenna Norodom"
+                    class="rounded-full object-cover w-full h-full ring-2 ring-gray-800"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <div
+                      class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg play-button"
+                    >
+                      <i
+                        data-lucide="play"
+                        class="w-5 h-5 text-black ml-1 fill-current"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <p class="mt-4 font-semibold text-base truncate text-center">
+                  Jenna Norodom
+                </p>
+                <p class="text-sm text-gray-400 text-center">Artist</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Hide scrollbar utility -->
+          <style>
+            .scrollbar-hide::-webkit-scrollbar {
+              display: none;
+            }
+            .scrollbar-hide {
+              -ms-overflow-style: none;
+              scrollbar-width: none;
+            }
+          </style>
+          <!-- Footer -->
+          <footer class="bg-neutral-900 px-10 py-10 mt-8">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8"
+            >
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- Company -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Company</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-green-500">About</a></li>
+                    <li><a href="#" class="hover:text-green-500">Jobs</a></li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >For the Record</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Communities -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Communities</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-green-500">For Artists</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Developers</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Advertising</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Investors</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Vendors</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Useful Links -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Useful links</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-green-500">Support</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Free Mobile App</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Popular by Country</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Import your music</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Spotify Plans -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Spotify Plans</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Premium Individual</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Premium Duo</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Premium Family</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500"
+                        >Premium Student</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-green-500">Spotify Free</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/452229/instagram-1.svg"
+                    alt="Instagram"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/452123/twitter.svg"
+                    alt="Twitter"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Bottom -->
+            <div
+              class="border-t border-gray-700 mt-8 pt-6 text-sm text-gray-400"
+            >
+              © 2025 Spotify AB
+            </div>
+            <br />
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Add some basic interactivity
+      document.addEventListener("DOMContentLoaded", function () {
+        // Play button functionality
+        const playButtons = document.querySelectorAll(".play-button");
+        playButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.stopPropagation();
+            // Add play functionality here
+            console.log("Play clicked");
+          });
+        });
+
+        // Track row click functionality
+        const trackRows = document.querySelectorAll(".grid.cursor-pointer");
+        trackRows.forEach((row) => {
+          row.addEventListener("click", function () {
+            // Remove active state from all tracks
+            trackRows.forEach((r) => {
+              const title = r.querySelector("h4");
+              const number = r.querySelector(".col-span-1 span");
+              if (title) title.classList.remove("text-green-500");
+              if (number) number.classList.remove("text-green-500");
+            });
+
+            // Add active state to clicked track
+            const title = this.querySelector("h4");
+            const number = this.querySelector(".col-span-1 span");
+            if (title) title.classList.add("text-green-500");
+            if (number) number.classList.add("text-green-500");
+          });
+        });
+
+        // Heart button functionality
+        const heartButtons = document.querySelectorAll('[data-lucide="heart"]');
+        heartButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.stopPropagation();
+            this.classList.toggle("text-green-500");
+            this.classList.toggle("fill-current");
+          });
+        });
+
+        // Progress bar click functionality
+        const progressBar = document.querySelector(".cursor-pointer.group");
+        if (progressBar) {
+          progressBar.addEventListener("click", function (e) {
+            const rect = this.getBoundingClientRect();
+            const percent = (e.clientX - rect.left) / rect.width;
+            const progressFill = this.querySelector("div");
+            if (progressFill) {
+              progressFill.style.width = `${percent * 100}%`;
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

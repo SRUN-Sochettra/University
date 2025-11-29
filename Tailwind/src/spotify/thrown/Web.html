@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify Web Player</title>
+    <link href="./output.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #1f2937 0%,
+          #000000 50%,
+          #1f2937 100%
+        );
+      }
+      .content-gradient {
+        background: #171717;
+      }
+      .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+      }
+      .hover-scale {
+        transition: transform 0.2s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+      .play-button {
+        transition: all 0.3s ease;
+      }
+      .play-button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(34, 197, 94, 0.3);
+      }
+      .vertical-gradient {
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body
+    class="gradient-bg text-white overflow-hidden h-screen overflow-x-hidden"
+  >
+    <nav
+      class="flex items-center justify-between px-6 py-3 bg-black border-b border-gray-800 rounded-lg m-1 pt-3"
+    >
+      <!-- Left: Logo + Home -->
+      <div class="flex items-center gap-4">
+        <!-- Spotify Logo -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
+          alt="Spotify"
+          class="w-8 h-8"
+        />
+
+        <!-- Home Icon -->
+        <button
+          class="w-9 h-9 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="white"
+            viewBox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path d="M12 3l9 8h-3v9h-12v-9h-3z" />
+          </svg>
+        </button>
+
+        <!-- Search Bar -->
+        <div
+          class="flex items-center w-96 bg-neutral-800 rounded-2xl px-4 py-2"
+        >
+          <input
+            type="text"
+            placeholder="What do you want to learn?"
+            class="w-full bg-transparent text-sm placeholder-gray-400 text-white focus:outline-none"
+          />
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="gray"
+            viewBox="0 0 24 24"
+            class="w-5 h-5"
+          >
+            <path
+              d="M10 2a8 8 0 015.292 13.708l4.147 4.147-1.414 1.414-4.147-4.147A8 8 0 1110 2zm0 2a6 6 0 100 12 6 6 0 000-12z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Right: Links -->
+      <div class="flex items-center gap-6 text-xs font-medium">
+        <span class="text-gray-500">|</span>
+        <a
+          href="/src/spotify/Install page.Html"
+          class="text-gray-300 hover:text-white"
+          >Introduction</a
+        >
+        <span class="text-gray-500 mr-7">|</span>
+      </div>
+    </nav>
+    <div class="flex h-full">
+      <!-- Sidebar -->
+      <div
+        class="w-20% h-100% bg-black bg-opacity-90 p-6 flex flex-col ml-1 mb-1 mr-2 rounded-lg"
+      >
+        <!-- Navigation -->
+        <nav class="space-y-4 mb-6 mr-5 rounded">
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-white hover:text-gray-300 transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=6WmNGzM9j4eN&format=png&color=000000"
+              alt="Home"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Home</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=2ui1n4CYeion&format=png&color=000000"
+              alt="Cambodian Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">Cambodian Heritage</span>
+          </a>
+          <a
+            href="#"
+            class="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors"
+          >
+            <img
+              src="https://img.icons8.com/?size=100&id=DeMfLBk8n72B&format=png&color=000000"
+              alt="World Heritages"
+              class="w-5 h-5"
+            />
+            <span class="font-medium">World Heritage</span>
+          </a>
+        </nav>
+        <!-- Divider -->
+        <div class="flex items-center mb-3">
+          <div class="flex-1 border-t border-gray-600"></div>
+          <div class="flex-1 border-t border-gray-600"></div>
+        </div>
+
+        <!-- Playlists -->
+        <div class="flex-1 overflow-y-auto scrollbar-hide mt-3">
+          <div class="space-y-3">
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Built Heritages</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Natural Heritages</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Cultural Heritages</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Collections / Playlists</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Preservation & Policies</a
+            >
+
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >About UNESCO</a
+            >
+            <a
+              href="#"
+              class="block text-gray-400 hover:text-white transition-colors"
+              >Settings</a
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Main Content -->
+      <div class="flex-1 flex flex-col overflow-hidden rounded-lg mr-1 mb-1">
+        <!-- Content Area -->
+        <div class="flex-1 overflow-y-auto content-gradient p-8 scrollbar-hide">
+          <!-- Header -->
+          <div class="mb-8">
+            <h2 class="text-3xl font-bold mb-2">Thank you for visiting</h2>
+            <p class="text-gray-400">Learn more about Cambodian Culture here</p>
+          </div>
+
+          <!-- Quick Access -->
+          <div class="grid grid-cols-3 gap-4 mb-8">
+            <div
+              class="bg-gray-700 flex-row bg-opacity-50 rounded-lg p-4 flex items-center space-x-4 hover:bg-gray-600 hover:bg-opacity-50 transition-colors cursor-pointer group relative"
+            >
+              <img
+                src="https://thumbs.dreamstime.com/b/cambodia-country-design-template-flat-cartoon-styl-style-historic-sight-showplace-web-vector-illustration-world-vacation-travel-73370420.jpg"
+                alt="Cambodian Temples"
+                class="w-20 h-20 rounded"
+              />
+              <span class="font-semibold flex-shrink-0">Cambodian Temples</span>
+              <div
+                class="absolute right-5 top-5 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+            </div>
+            <div
+              class="bg-gray-700 bg-opacity-50 rounded-lg p-4 flex items-center space-x-4 hover:bg-gray-600 hover:bg-opacity-50 transition-colors cursor-pointer group relative"
+            >
+              <img
+                src="https://www.iasgyan.in//ig-uploads/images//7_WONDERS_OF_THE_WORLD.jpg"
+                alt="World Wonders"
+                class="w-20 h-20 rounded"
+              />
+              <span class="font-semibold">World Wonders</span>
+              <div
+                class="absolute right-5 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+            </div>
+            <div
+              class="bg-gray-700 bg-opacity-50 rounded-lg p-4 flex items-center space-x-4 hover:bg-gray-600 hover:bg-opacity-50 transition-colors cursor-pointer group relative"
+            >
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDBVczs2FNzQfY9tygjBroi8fPcRqAbRSjSQ&s"
+                alt="Endangered Sites"
+                class="w-20 h-20 rounded"
+              />
+              <span class="font-semibold">Endangered Sites</span>
+              <div
+                class="absolute right-5 opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+            </div>
+          </div>
+
+          <!-- Cambodian Heritages -->
+          <section id="CambodianHeritages">
+            <div class="flex justify-between items-center mt-4 mb-4">
+              <h3 class="text-2xl font-bold hover:underline">
+                Cambodian Heritages
+              </h3>
+              <a
+                href="/src/spotify/Recently Played page.Html"
+                class="text-sm text-gray-400 hover:underline"
+                >Show all</a
+              >
+            </div>
+            <div class="flex gap-1 overflow-x-auto scrollbar-hide">
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://c4.wallpaperflare.com/wallpaper/504/77/190/angkor-wat-cambodia-historic-ruins-architecture-hd-wallpaper-preview.jpg"
+                    alt="Album"
+                    class="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Angkor Wat
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Siem Reap
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://napv.gov.kh/uploads/images/Gallery/Header_Slideshow/3.PV.jpg"
+                    alt="Album"
+                    class="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Preah Vihear
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Preah Vihear
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://cdn.sanity.io/images/nxpteyfv/goguides/fe546622cfa1a513d9afd2c4e46bceef42eef121-1600x1066.jpg"
+                    alt="Album"
+                    class="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Sambor Prei Kuk
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Kampong Thom
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://pbs.twimg.com/media/DbgC3v4XcAAeVvQ.jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Preah Reach Trop
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Classical Royal dance
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://vietnambestholidays.com/uploads/Cambodia/Travel-guide/Sbek-Thom-Khmer-Shadow-Theater.jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Sramol Sbek Thom
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Shadow Puppet Theatre
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://www.khmertimeskh.com/wp-content/uploads/2018/08/20-P-Teanh_Prot.jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Teanh Prat
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Traditional Game
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://www.historyhit.com/app/uploads/2020/11/Tuol-Sleng-Genocide-Museum.jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Tuol Sleng
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">Museum</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://live.staticflickr.com/65535/11318287534_c8cbdf2c58_b.jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Chapey Dang Veng
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Musical Instrument
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://www.traditionalsports.org/images/sports/asia/bokator/gallery/bokator-3.jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Bokator
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Martial Art
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- World Heritages -->
+          <section id="WorldHeritages">
+            <div class="flex justify-between items-center mt-4 mb-4">
+              <h3 class="text-2xl font-bold hover:underline">
+                World Heritages
+              </h3>
+              <a
+                href="/Tailwind/src/spotify/world show all.html"
+                class="text-sm text-gray-400 hover:underline"
+                >Show all</a
+              >
+            </div>
+            <div class="flex gap-1 overflow-x-auto scrollbar-hide">
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://images.unsplash.com/photo-1608037521277-154cd1b89191?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlYXQlMjB3YWxsJTIwb2YlMjBjaGluYXxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Album"
+                    class="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Great Wall of China
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">China</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8bWFjaHUlMjBwaWNjaHV8ZW58MHx8MHx8fDA%3D"
+                    alt="Album"
+                    class="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Machu Picchu
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">Peru</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://wallpapercat.com/w/full/b/e/a/777362-3840x2160-desktop-4k-pyramids-of-giza-background-image.jpg"
+                    alt="Album"
+                    class="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Pyramids of Giza
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">Egypt</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://images.pexels.com/photos/3881104/pexels-photo-3881104.jpeg?cs=srgb&dl=pexels-maahidphotos-3881104.jpg&fm=jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Taj Mahal
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">India</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://images.pexels.com/photos/1797161/pexels-photo-1797161.jpeg?cs=srgb&dl=pexels-chaitaastic-1797161.jpg&fm=jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Colosseum
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">Italy</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://images.pexels.com/photos/1631665/pexels-photo-1631665.jpeg?cs=srgb&dl=pexels-abdghat-1631665.jpg&fm=jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Petra
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">Jordan</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://c4.wallpaperflare.com/wallpaper/504/77/190/angkor-wat-cambodia-historic-ruins-architecture-hd-wallpaper-preview.jpg"
+                    alt="Album"
+                    class="w-full h-full object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Angkor Wat
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Siem Reap
+                </p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://i.pinimg.com/736x/68/1d/7f/681d7fbbfe7ae57e14a38c44727c17fa.jpg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Acropolis of Athens
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">Greece</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://cdn.wallpapersafari.com/9/96/ik1rTg.jpeg"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Grand Canyon
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">USA</p>
+              </div>
+              <div
+                class="flex flex-col w-44 shrink-0 rounded-2xl hover:bg-gray-700 hover:bg-opacity-50 transition-all pt-2.5 px-3"
+              >
+                <div class="relative group aspect-square">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhehxmV4bbxxnpT891Scn1PGOHV0nBfjPRrQ&s"
+                    alt="Album"
+                    class="w-full aspect-square object-cover rounded-lg shadow-lg"
+                  />
+                  <div
+                    class="absolute bottom-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity"
+                  ></div>
+                </div>
+                <p class="mt-2 font-semibold text-sm truncate text-center">
+                  Great Barrier Reef
+                </p>
+                <p class="text-xs text-gray-400 text-center pb-2.5">
+                  Australia
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Trending Heritages -->
+          <section>
+            <h3 class="text-2xl font-bold mb-6 mt-4 hover:underline">
+              Trending Heritages around the World
+            </h3>
+            <div class="space-y-2">
+              <!-- Track Header -->
+              <div
+                class="grid grid-cols-12 gap-4 px-4 py-2 text-gray-400 text-sm border-b border-gray-700"
+              >
+                <div class="col-span-1">#</div>
+                <div class="col-span-5">HERITAGES</div>
+                <div class="col-span-3">SIGNIFICANCE</div>
+                <div class="col-span-3 text-right">LOCATION</div>
+              </div>
+
+              <!-- Track Rows -->
+              <div
+                class="grid grid-cols-12 gap-4 px-4 py-2 rounded-lg group cursor-pointer hover:bg-white hover:bg-opacity-10 transition-colors"
+              >
+                <div class="col-span-1 flex items-center">
+                  <span class="text-sm text-white">1</span>
+                  <i
+                    data-lucide="pause"
+                    class="w-4 h-4 hidden group-hover:block text-white"
+                  ></i>
+                </div>
+                <div class="col-span-5 flex items-center space-x-3">
+                  <img
+                    src="https://c4.wallpaperflare.com/wallpaper/485/312/903/castle-forbidden-city-skyline-cityscape-wallpaper-preview.jpg  "
+                    alt="Track"
+                    class="w-10 h-10 rounded object-cover"
+                  />
+                  <div>
+                    <h4 class="font-medium text-white">The Forbidden City</h4>
+                  </div>
+                </div>
+                <div class="col-span-3 flex items-center">
+                  <span class="text-gray-400 text-sm"
+                    >Imperial China’s heart</span
+                  >
+                </div>
+                <div class="col-span-3 flex items-center justify-between">
+                  <i
+                    data-lucide="heart"
+                    class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-green-500 fill-current"
+                  ></i>
+                  <span class="text-gray-400 text-sm">China</span>
+                </div>
+              </div>
+
+              <div
+                class="grid grid-cols-12 gap-4 px-4 py-2 rounded-lg group cursor-pointer hover:bg-white hover:bg-opacity-10 transition-colors"
+              >
+                <div class="col-span-1 flex items-center">
+                  <span class="text-sm text-gray-400">2</span>
+                  <i
+                    data-lucide="play"
+                    class="w-4 h-4 hidden group-hover:block text-white"
+                  ></i>
+                </div>
+                <div class="col-span-5 flex items-center space-x-3">
+                  <img
+                    src="https://cdn2.smokymountains.com/uploads/2021/01/smoky-mountains.jpg"
+                    alt="Track"
+                    class="w-10 h-10 rounded object-cover"
+                  />
+                  <div>
+                    <h4 class="font-medium text-white">
+                      Great Smoky Mountains National Park
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-span-3 flex items-center">
+                  <span class="text-gray-400 text-sm"
+                    >Biodiversity & Appalachian</span
+                  >
+                </div>
+                <div class="col-span-3 flex items-center justify-between">
+                  <i
+                    data-lucide="heart"
+                    class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-white"
+                  ></i>
+                  <span class="text-gray-400 text-sm">USA</span>
+                </div>
+              </div>
+
+              <div
+                class="grid grid-cols-12 gap-4 px-4 py-2 rounded-lg group cursor-pointer hover:bg-white hover:bg-opacity-10 transition-colors"
+              >
+                <div class="col-span-1 flex items-center">
+                  <span class="text-sm text-gray-400">3</span>
+                  <i
+                    data-lucide="play"
+                    class="w-4 h-4 hidden group-hover:block text-white"
+                  ></i>
+                </div>
+                <div class="col-span-5 flex items-center space-x-3">
+                  <img
+                    src="https://images.unsplash.com/photo-1608037521277-154cd1b89191?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Z3JlYXQlMjB3YWxsJTIwb2YlMjBjaGluYXxlbnwwfHwwfHx8MA%3D%3D"
+                    alt="Track"
+                    class="w-10 h-10 rounded object-cover"
+                  />
+                  <div>
+                    <h4 class="font-medium text-white">Great Wall of China</h4>
+                  </div>
+                </div>
+                <div class="col-span-3 flex items-center">
+                  <span class="text-gray-400 text-sm"
+                    >Ancient defense & unity</span
+                  >
+                </div>
+                <div class="col-span-3 flex items-center justify-between">
+                  <i
+                    data-lucide="heart"
+                    class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-green-500 fill-current"
+                  ></i>
+                  <span class="text-gray-400 text-sm">China</span>
+                </div>
+              </div>
+
+              <div
+                class="grid grid-cols-12 gap-4 px-4 py-2 rounded-lg group cursor-pointer hover:bg-white hover:bg-opacity-10 transition-colors"
+              >
+                <div class="col-span-1 flex items-center">
+                  <span class="text-sm text-gray-400">4</span>
+                  <i
+                    data-lucide="play"
+                    class="w-4 h-4 hidden group-hover:block text-white"
+                  ></i>
+                </div>
+                <div class="col-span-5 flex items-center space-x-3">
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTcGNjh2IGmB60s6hIVYZ0sbL6_S_PSkl_5IA&s"
+                    alt="Track"
+                    class="w-10 h-10 rounded object-cover"
+                  />
+                  <div>
+                    <h4 class="font-medium text-white">
+                      Kulangsu (Gulangyu Island)
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-span-3 flex items-center">
+                  <span class="text-gray-400 text-sm"
+                    >East–West cultural exchange</span
+                  >
+                </div>
+                <div class="col-span-3 flex items-center justify-between">
+                  <i
+                    data-lucide="heart"
+                    class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-gray-400 hover:text-white"
+                  ></i>
+                  <span class="text-gray-400 text-sm">China</span>
+                </div>
+              </div>
+
+              <div
+                class="grid grid-cols-12 gap-4 px-4 py-2 rounded-lg group cursor-pointer hover:bg-white hover:bg-opacity-10 transition-colors"
+              >
+                <div class="col-span-1 flex items-center">
+                  <span class="text-sm text-gray-400">5</span>
+                  <i
+                    data-lucide="play"
+                    class="w-4 h-4 hidden group-hover:block text-white"
+                  ></i>
+                </div>
+                <div class="col-span-5 flex items-center space-x-3">
+                  <img
+                    src="https://www.shutterstock.com/shutterstock/videos/3857888167/thumb/1.jpg?ip=x480"
+                    alt="Track"
+                    class="w-10 h-10 rounded object-cover"
+                  />
+                  <div>
+                    <h4 class="font-medium text-white">
+                      Gyeongju Historic Areas
+                    </h4>
+                  </div>
+                </div>
+                <div class="col-span-3 flex items-center">
+                  <span class="text-gray-400 text-sm"
+                    >Legacy of the Silla Kingdom</span
+                  >
+                </div>
+                <div class="col-span-3 flex items-center justify-between">
+                  <i
+                    data-lucide="heart"
+                    class="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-green-500 fill-current"
+                  ></i>
+                  <span class="text-gray-400 text-sm">South Korea</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Footer -->
+          <footer class="bg-neutral-900 px-10 py-10 mt-8">
+            <div
+              class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between gap-8"
+            >
+              <!-- Footer Links -->
+              <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <!-- About -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">About</h3>
+                  <h3 class="text-sm text-gray-400">This website is dedicated to promoting knowledge and awareness of Cambodian and World Heritage Sites.</h3>
+                </div>
+
+                <!-- Heritage Focus -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Heritage Focus</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-900">Cambodian Heritage Highlights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-900">World Heritage Insights</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-900">Research & Education</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-900">Preservation Initiatives</a>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Resources -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Resources</h3>
+                  <ul class="space-y-2 text-sm">
+                    <li>
+                      <a href="#" class="hover:text-blue-900">UNESCO World Heritage Centre</a>
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-900"
+                        >Cambodian Ministry of Culture and Fine Arts</a
+                      >
+                    </li>
+                    <li>
+                      <a href="#" class="hover:text-blue-900"
+                        >Conservation Guidelines</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Contact & Credits -->
+                <div>
+                  <h3 class="font-bold text-white mb-3">Contact & Credits</h3>
+                  <h3 class="text-sm text-gray-400">name<br>@num.edu.kh</h3>
+                  <h3 class="text-sm text-gray-400">Phnom Penh, Cambodia.</h3>
+                </div>
+              </div>
+
+              <!-- Social Icons -->
+              <div class="flex gap-4">
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMbxUiXQ5XemHWWnE2seIOvIgqizqsmEuwcQ&s"
+                    alt="NUM"
+                    class="w-5 h-5 rounded-2xl"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://img.icons8.com/?size=100&id=63306&format=png&color=000000"
+                    alt="Telegram"
+                    class="w-5 h-5"
+                  />
+                </a>
+                <a
+                  href="#"
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-neutral-800 hover:bg-neutral-700"
+                >
+                  <img
+                    src="https://www.svgrepo.com/show/448224/facebook.svg"
+                    alt="Facebook"
+                    class="w-5 h-5"
+                  />
+                </a>
+              </div>
+            </div>
+
+            <!-- Bottom -->
+            <div
+              class="border-t border-gray-700 mt-8 pt-6 text-sm text-gray-400"
+            >
+              © 2025 Name<br /><br />
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

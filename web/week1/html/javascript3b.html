@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Exchange Money</h1>
+    <h2>Input Money (Dollars):</h2>
+    <form action="">
+        <input type="text" placeholder="Input Dollar">
+        <h1 class="valid">Money can be Empty</h1>
+        <div class="buttons">
+            <button onclick="exchange()">Exchange</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+        <div class="result">
+            <p>Riel:
+                <span id="riel">
+                    0.00
+                </span>
+            </p>
+            <p>Baht:
+                <span id="baht">
+                    0.00
+                </span>
+            </p>
+        </div>
+
+        <script>
+            valid= document.getElementById('.valid');
+            riel= document.getElementById('riel');
+            baht= document.getElementById('baht');
+            input= document.querySelector('input').value;
+            if(input==""){
+                valid.style.display="block";
+            } else {
+                valid.style.display="none";
+            }
+            function exchange(){
+                input= document.querySelector('input').value;
+                if (isNaN(input) || input=="") {
+                    valid.style.display="block";
+                    riel.innerHTML = 0.00;
+                    baht.innerHTML = 0.00;
+                } else {
+                    valid.style.display="none"
+                    riel.innerHTML = (input * 4100).toFixed(2);
+                    baht.innerHTML = (input * 40).toFixed(2);
+                }
+            }
+            function reset(){
+                document.querySelector('input').value = "";
+                valid.style.display="none";
+                riel.innerHTML = 0.00;
+                baht.innerHTML = 0.00;
+            }
+        </script>
+    </form>
+</body>
+</html>
