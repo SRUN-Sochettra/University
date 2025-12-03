@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class FirstScreen extends StatelessWidget {
-  // const FirstScreen({super.key});
-
   final pic1 =
       "https://preview.redd.it/i-think-i-figured-out-why-dr-doom-will-look-like-tony-stark-v0-1d2ybzom0xxe1.jpeg?auto=webp&s=137d9748dff7a617ed766120adfefd29176726b6";
   final pic2 =
@@ -15,12 +14,37 @@ class FirstScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        title: Text("First Screen"),
+        title: Text("កម្មវិធីដំបូងរបស់ខ្ញុំ", style: GoogleFonts.moulpali()),
         backgroundColor: Colors.pink,
         foregroundColor: Colors.white,
       ),
       endDrawer: Drawer(backgroundColor: Colors.pink.shade700),
-      drawer: Drawer(width: 350, child: Image.network(pic2, fit: BoxFit.cover)),
+      drawer: Drawer(
+        backgroundColor: Colors.yellow.shade50,
+        child: ListView(
+          children: [
+            DrawerHeader(child: Icon(Icons.face, size: 100)),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("ទំព័រដើម"),
+              subtitle: Text("Go to home page"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text("ការកំណត់"),
+              subtitle: Text("Go to settings"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text("ចាកចេញ"),
+              subtitle: Text("Logout"),
+              trailing: Icon(Icons.arrow_forward),
+            ),
+          ],
+        ),
+      ),
       body: Center(child: Image.network(pic1)),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
       floatingActionButton: FloatingActionButton(
