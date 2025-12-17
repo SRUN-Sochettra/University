@@ -25,7 +25,27 @@ class FirstScreen extends StatelessWidget {
 
   FirstScreen({super.key});
 
-  Widget _buildListViewBuilder1() {
+  Widget _buildLPageViewBuilder() {
+    return SizedBox(
+      height: 300,
+      child: PageView.builder(
+        scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
+        itemCount: foods.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(foods[index], fit: BoxFit.cover),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildListViewBuilder() {
     return ListView.builder(
       physics: BouncingScrollPhysics(),
       itemCount: foods.length,
@@ -41,7 +61,7 @@ class FirstScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildGridViewBuilder() {
+  Widget _buildGridViewBuilder1() {
     return GridView.builder(
       physics: BouncingScrollPhysics(),
       padding: EdgeInsets.all(8),
@@ -94,7 +114,7 @@ class FirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildGridViewBuilder(),
+      body: _buildLPageViewBuilder(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("ម្ហូបខ្មែរ", style: GoogleFonts.moulpali()),
