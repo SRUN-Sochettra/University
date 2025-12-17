@@ -2,19 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class FirstScreen extends StatelessWidget {
+  List<String> foods = [
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://i.ytimg.com/vi/_12mKQnk4ik/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLDLMiOV2ejY7j_MbsqLmXhUd-tR-Q",
+    "https://i.ytimg.com/vi/FcMGJGvOBcI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBH7iEZ059SQ8otKVvXhqNjOWNcdA",
+    "https://refile.tnaot.com/video/2018/10/6/2dba94dc452a432c8e28b31be9bda545.jpg?x-oss-process=image/watermark,image_RS5wbmc_eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsUF8yMA,x_10,y_10",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpiNyLY39N1hDRYx2_K9OWBzhy1__dhmnSg&s",
+  ];
   final pic1 =
       "https://preview.redd.it/i-think-i-figured-out-why-dr-doom-will-look-like-tony-stark-v0-1d2ybzom0xxe1.jpeg?auto=webp&s=137d9748dff7a617ed766120adfefd29176726b6";
   final pic2 =
       "https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/spider_man_1_1_4.png";
 
-  const FirstScreen({super.key});
+  FirstScreen({super.key});
+
+  Widget _buildListViewBuilder() {
+    return ListView.builder(
+      physics: BouncingScrollPhysics(),
+      itemCount: foods.length,
+      itemBuilder: (context, index) {
+        return Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: Image.network(foods[index], fit: BoxFit.cover, height: 200),
+          ),
+        );
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      body: _buildListViewBuilder(),
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text("កម្មវិធីដំបូងរបស់ខ្ញុំ", style: GoogleFonts.moulpali()),
+        title: Text("ម្ហូបខ្មែរ", style: GoogleFonts.moulpali()),
         backgroundColor: Colors.pink,
         foregroundColor: Colors.white,
       ),
@@ -45,11 +69,10 @@ class FirstScreen extends StatelessWidget {
           ],
         ),
       ),
-      body: Center(child: Image.network(pic1)),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerTop,
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: FloatingActionButton(
         shape: CircleBorder(),
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.pink,
         foregroundColor: Colors.black,
         onPressed: () {},
         child: Icon(Icons.person),
