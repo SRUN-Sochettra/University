@@ -33,9 +33,43 @@ class FirstScreen extends StatelessWidget {
   }
 
   @override
+  Widget _buildBody() {
+    return _buildGridViewExtent();
+  }
+
+  Widget _buildGridViewExtent() {
+    return GridView.extent(
+      scrollDirection: Axis.vertical, //.horizontal
+      padding: EdgeInsets.all(8),
+      physics: BouncingScrollPhysics(),
+      // crossAxisCount: 3,
+      maxCrossAxisExtent: 100,
+      childAspectRatio: 3 / 5,
+      mainAxisSpacing: 5,
+      crossAxisSpacing: 10,
+      children: [
+        Container(width: 150, height: 190, color: Colors.amber),
+        Container(width: 180, height: 100, color: Colors.pink),
+        Container(width: 170, height: 130, color: Colors.blue),
+        Container(width: 180, height: 150, color: Colors.lime),
+        Container(width: 140, height: 190, color: Colors.purple),
+        Container(width: 150, height: 190, color: Colors.amber),
+        Container(width: 180, height: 100, color: Colors.pink),
+        Container(width: 170, height: 130, color: Colors.blue),
+        Container(width: 180, height: 150, color: Colors.lime),
+        Container(width: 140, height: 190, color: Colors.purple),
+        Container(width: 150, height: 190, color: Colors.amber),
+        Container(width: 180, height: 100, color: Colors.pink),
+        Container(width: 170, height: 130, color: Colors.blue),
+        Container(width: 180, height: 150, color: Colors.lime),
+        Container(width: 140, height: 190, color: Colors.purple),
+      ],
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildListViewBuilder(),
+      body: _buildGridViewExtent(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("ម្ហូបខ្មែរ", style: GoogleFonts.moulpali()),
