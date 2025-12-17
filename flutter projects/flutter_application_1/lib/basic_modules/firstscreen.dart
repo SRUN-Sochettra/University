@@ -25,29 +25,10 @@ class FirstScreen extends StatelessWidget {
 
   FirstScreen({super.key});
 
-  Widget _buildLPageViewBuilder() {
-    return SizedBox(
-      height: 300,
-      child: PageView.builder(
-        scrollDirection: Axis.horizontal,
-        physics: BouncingScrollPhysics(),
-        itemCount: foods.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: const EdgeInsets.all(8),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(foods[index], fit: BoxFit.cover),
-            ),
-          );
-        },
-      ),
-    );
-  }
-
   Widget _buildListViewBuilder() {
     return ListView.builder(
-      physics: BouncingScrollPhysics(),
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
       itemCount: foods.length,
       itemBuilder: (context, index) {
         return Padding(
@@ -59,26 +40,6 @@ class FirstScreen extends StatelessWidget {
         );
       },
     );
-  }
-
-  Widget _buildGridViewBuilder1() {
-    return GridView.builder(
-      physics: BouncingScrollPhysics(),
-      padding: EdgeInsets.all(8),
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        childAspectRatio: 3 / 2,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-      ), // SliverGridDelegateWithFixedCrossAxisCount
-      itemCount: foods.length,
-      itemBuilder: (context, index) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Image.network(foods[index], fit: BoxFit.cover),
-        );
-      },
-    ); // GridView.builder
   }
 
   Widget _buildGridViewExtent() {
@@ -111,10 +72,61 @@ class FirstScreen extends StatelessWidget {
     );
   }
 
+  Widget _buildBody() {
+    return _buildMainListView();
+  }
+
+  Widget _buildMainListView() {
+    return ListView(
+      physics: BouncingScrollPhysics(),
+      children: [_buildLPageViewBuilder(), _buildGridView()],
+    );
+  }
+
+  Widget _buildGridView() {
+    return GridView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 3 / 2,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+      ),
+      itemCount: foods.length,
+      itemBuilder: (context, index) {
+        return ClipRRect(
+          borderRadius: BorderRadiusGeometry.circular(8),
+          child: Image.network(foods[index], fit: BoxFit.cover),
+        );
+      },
+    );
+  }
+
+  Widget _buildLPageViewBuilder() {
+    return SizedBox(
+      height: 300,
+      child: PageView.builder(
+        scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
+        itemCount: foods.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(16),
+              child: Image.network(foods[index], fit: BoxFit.cover),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _buildLPageViewBuilder(),
+      body: _buildBody(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text("ម្ហូបខ្មែរ", style: GoogleFonts.moulpali()),
