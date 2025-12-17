@@ -8,6 +8,15 @@ class FirstScreen extends StatelessWidget {
     "https://i.ytimg.com/vi/FcMGJGvOBcI/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLBH7iEZ059SQ8otKVvXhqNjOWNcdA",
     "https://refile.tnaot.com/video/2018/10/6/2dba94dc452a432c8e28b31be9bda545.jpg?x-oss-process=image/watermark,image_RS5wbmc_eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsUF8yMA,x_10,y_10",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgpiNyLY39N1hDRYx2_K9OWBzhy1__dhmnSg&s",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
+    "https://s9.kh1.co/4a/4a00f7f022977efa4aee26726ac41ace0bca0fc2.jpg",
   ];
   final pic1 =
       "https://preview.redd.it/i-think-i-figured-out-why-dr-doom-will-look-like-tony-stark-v0-1d2ybzom0xxe1.jpeg?auto=webp&s=137d9748dff7a617ed766120adfefd29176726b6";
@@ -82,6 +91,7 @@ class FirstScreen extends StatelessWidget {
     );
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: _buildGridViewBuilder(),
