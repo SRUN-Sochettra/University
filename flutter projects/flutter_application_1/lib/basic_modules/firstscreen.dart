@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_application_1/basic_modules/detailscreen.dart';
+import 'foodmodel.dart';
 
 class FirstScreen extends StatelessWidget {
   List<String> foods = [
@@ -131,23 +132,34 @@ class FirstScreen extends StatelessWidget {
       child: PageView.builder(
         scrollDirection: Axis.horizontal,
         physics: BouncingScrollPhysics(),
-        itemCount: foods.length,
+        itemCount: foodList.length,
         itemBuilder: (context, index) {
           return InkWell(
             onTap: () {
               Navigator.of(context).push(
                 // MaterialPageRoute(builder: (context) => DetailScreen())
                 CupertinoPageRoute(
-                  builder: (context) => DetailScreen(foods[index]),
+                  builder: (context) => DetailScreen(foodList[index]),
                   // fullscreenDialog: true,
                 ),
               );
             },
-            child: Padding(
-              padding: const EdgeInsets.all(8),
-              child: ClipRRect(
+            child: ListTile(
+              title: ClipRRect(
                 borderRadius: BorderRadius.circular(16),
-                child: Image.network(foods[index], fit: BoxFit.cover),
+                child: Image.network(
+                  foodList[index].image,
+                  fit: BoxFit.cover,
+                  height: 250,
+                ),
+              ),
+              subtitle: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(
+                  foodList[index].title,
+                  style: GoogleFonts.metal(fontSize: 20),
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           );
