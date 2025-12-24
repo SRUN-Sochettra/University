@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_application_1/basic_modules/detailscreen.dart';
 
 class FirstScreen extends StatelessWidget {
   List<String> foods = [
@@ -103,7 +105,7 @@ class FirstScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildLPageViewBuilder() {
+  Widget _buildLPageViewBuilder1() {
     return SizedBox(
       height: 300,
       child: PageView.builder(
@@ -116,6 +118,37 @@ class FirstScreen extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: Image.network(foods[index], fit: BoxFit.cover),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  Widget _buildLPageViewBuilder() {
+    return SizedBox(
+      height: 300,
+      child: PageView.builder(
+        scrollDirection: Axis.horizontal,
+        physics: BouncingScrollPhysics(),
+        itemCount: foods.length,
+        itemBuilder: (context, index) {
+          return InkWell(
+            onTap: () {
+              Navigator.of(context).push(
+                // MaterialPageRoute(builder: (context) => DetailScreen())
+                CupertinoPageRoute(
+                  builder: (context) => DetailScreen(foods[index]),
+                  // fullscreenDialog: true,
+                ),
+              );
+            },
+            child: Padding(
+              padding: const EdgeInsets.all(8),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(16),
+                child: Image.network(foods[index], fit: BoxFit.cover),
+              ),
             ),
           );
         },
