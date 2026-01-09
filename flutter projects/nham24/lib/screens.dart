@@ -1696,7 +1696,7 @@ class AboutScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Text(
-                "Tip: Don’t ship a clone. Ship a better experience: faster search, clearer fees, better tracking, and real loyalty.",
+                "Tip: Use the bottom navigation bar for quick access to Home, Orders, and Settings.",
                 textAlign: TextAlign.center,
                 style: TextStyle(color: Colors.grey[700]),
               ),
