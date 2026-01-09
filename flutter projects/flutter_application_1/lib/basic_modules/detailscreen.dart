@@ -7,7 +7,7 @@ class DetailScreen extends StatelessWidget {
 
   Food item;
 
-  DetailScreen(this.item);
+  DetailScreen(this.item, {super.key});
 
   @override
   Widget build(BuildContext context) {
